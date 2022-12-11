@@ -27,13 +27,14 @@ function InputBox() {
             unit: typeRef.current.value,
             exp: expRef.current.value,
             equip: equipRef.current.value,
+            race: ancestOverrideRef.current.checked ? raceRef.current.value : null,
         }
         console.log(body);
     }
 
     function overrideAncestor() {
         setAncestryOverride(ancestOverrideRef.current.checked);
-        console.log(ancestryOverride);
+        //console.log(ancestryOverride);
     }
 
     return (
@@ -43,12 +44,14 @@ function InputBox() {
             label="Name"
             ref={nameRef}
             //value = {this.state.value}
-            onChange={onSave}/>
+            //onChange={onSave}
+            />
         <InputForm
             label="Commander"
             ref={commandRef}
             //value = {this.state.value}
-            onChange={onSave}/>
+            //onChange={onSave}
+            />
         <Dropdown
             label="Ancestry"
             ref={ancestRef}
@@ -59,13 +62,14 @@ function InputBox() {
             label="Ancestry Override"
             ref={ancestOverrideRef}
             onChange={overrideAncestor}/>
-        {!ancestryOverride && (
+        {ancestryOverride && (
             <InputForm
                 label="Unit Race"
                 ref={raceRef}
                 passedValue={""} 
                 //value = {this.state.value}
-                onChange={onSave}/>
+                //onChange={onSave}
+                />
         )}
         <Dropdown
             label="Type"

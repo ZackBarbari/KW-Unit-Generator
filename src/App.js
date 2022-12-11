@@ -1,4 +1,5 @@
 import InputBox from "./components/InputBox";
+import UnitCard from "./components/UnitCard";
 
 function App() {
   return (
@@ -6,7 +7,8 @@ function App() {
     <div className="App">
       <h1>Kingdoms and Warfare</h1>
       <h2>Unit Card Generator</h2>
-      <InputBox></InputBox>
+      <InputBox />
+      <UnitCard />
     </div>
     </>
   );
