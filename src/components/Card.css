@@ -1,0 +1,9 @@
+.card-outline {
+    margin-right: 5%;
+    float: right;
+    width: 25%;
+    border-radius: 25px;
+    border: 10px solid rgb(128, 0, 0);
+    height: 50%;
+    padding: 10px;
+  }

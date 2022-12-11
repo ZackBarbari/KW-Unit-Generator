@@ -1,3 +1,4 @@
+import './Input.css';
 import InputForm from "./forms/input";
 import Dropdown from "./forms/dropdown";
 import CheckBox from "./forms/checkbox";
@@ -39,7 +40,7 @@ function InputBox() {
 
     return (
         <>
-
+        <div className='input-columns'>
         <InputForm
             label="Name"
             ref={nameRef}
@@ -89,6 +90,8 @@ function InputBox() {
             passedValue={0} 
             passedOptions={equipment}
             onChange={onSave}/>
+        Card Theme:
+        </div>
         </>
     )
 }
