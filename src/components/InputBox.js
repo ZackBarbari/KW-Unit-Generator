@@ -31,6 +31,11 @@ function InputBox() {
         console.log(body);
     }
 
+    function overrideAncestor() {
+        setAncestryOverride(ancestOverrideRef.current.checked);
+        console.log(ancestryOverride);
+    }
+
     return (
         <>
 
@@ -53,17 +58,15 @@ function InputBox() {
         <CheckBox
             label="Ancestry Override"
             ref={ancestOverrideRef}
-            passedValue={0}
-            onChange={onSave}/>
-        {ancestryOverride == 1 && (
-            console.log("EEEE")
+            onChange={overrideAncestor}/>
+        {!ancestryOverride && (
+            <InputForm
+                label="Unit Race"
+                ref={raceRef}
+                passedValue={""} 
+                //value = {this.state.value}
+                onChange={onSave}/>
         )}
-        <InputForm
-            label="Unit Race"
-            ref={raceRef}
-            passedValue={""} 
-            //value = {this.state.value}
-            onChange={onSave}/>
         <Dropdown
             label="Type"
             ref={typeRef}

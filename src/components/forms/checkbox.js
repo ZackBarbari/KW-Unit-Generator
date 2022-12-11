@@ -1,4 +1,3 @@
-
 import React from "react";
 
 // React.forwardRef allows this component to provide the reference info to the parent calling it
