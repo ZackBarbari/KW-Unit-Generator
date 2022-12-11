@@ -8,7 +8,7 @@ import experience from "../constants/experience";
 import type from "../constants/type";
 import { useRef, useState } from "react";
 
-function InputBox() {
+const InputBox = ({onMod}) => {
     const [ancestryOverride, setAncestryOverride] = useState();
 
     const nameRef = useRef();
@@ -31,6 +31,7 @@ function InputBox() {
             race: ancestOverrideRef.current.checked ? raceRef.current.value : null,
         }
         console.log(body);
+        onMod(body)
     }
 
     function overrideAncestor() {
@@ -74,7 +75,8 @@ function InputBox() {
             ref={typeRef}
             passedValue={"levy"} 
             passedOptions={type}
-            onChange={onSave}/>
+            onChange={onSave}
+            />
         <Dropdown
             label="Experience"
             ref={expRef}

@@ -1,14 +1,23 @@
+import { useState } from 'react';
 import './Card.css';
 
-function UnitCard() {
-    var iconType = "infantry";
+const UnitCard = ({name, commander, ancestry, unit, exp, equip, race}) => {
+
+    //setType(unit);
+
+    //console.log("EEEE " + unit)
+    
     return (
         <>
         <div className='card-outline'>
-            <img src={ require(`../symbols/${iconType}.jpg`)} alt="Type Icon" width="100" height="100"></img>
+            <img src={ require(`../symbols/${unit}.jpg`)} alt="Type Icon" width="50" height="50"></img>
         </div>
         </>
     )
+}
+
+UnitCard.defaultProps = {
+    unit: "levy"
 }
 
 export default UnitCard;
