@@ -44,13 +44,11 @@ function InputBox() {
         <InputForm
             label="Name"
             ref={nameRef}
-            //value = {this.state.value}
             //onChange={onSave}
             />
         <InputForm
             label="Commander"
             ref={commandRef}
-            //value = {this.state.value}
             //onChange={onSave}
             />
         <Dropdown
@@ -68,14 +66,13 @@ function InputBox() {
                 label="Unit Race"
                 ref={raceRef}
                 passedValue={""} 
-                //value = {this.state.value}
                 //onChange={onSave}
                 />
         )}
         <Dropdown
             label="Type"
             ref={typeRef}
-            passedValue={0} 
+            passedValue={"levy"} 
             passedOptions={type}
             onChange={onSave}/>
         <Dropdown

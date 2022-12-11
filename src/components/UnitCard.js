@@ -1,11 +1,13 @@
 import './Card.css';
-import basic from "../symbols/basic.jpg";
 
 function UnitCard() {
+    var iconType = "infantry";
     return (
+        <>
         <div className='card-outline'>
-            <img src={basic} alt="Basic" width="100" height="100"></img>
+            <img src={ require(`../symbols/${iconType}.jpg`)} alt="Type Icon" width="100" height="100"></img>
         </div>
+        </>
     )
 }
 

@@ -1,10 +1,10 @@
 const type = {
-    0: "Levies",
-    1: "Infantry",
-    2: "Artillery: Archers",
-    3: "Artillery: Siege",
-    4: "Cavalry",
-    5: "Aerial",
+    levy: "Levy",
+    infantry: "Infantry",
+    archer: "Artillery: Archers",
+    siege: "Artillery: Siege",
+    cavalry: "Cavalry",
+    aerial: "Aerial",
   };
   
   export default type;

@@ -1,5 +1,5 @@
 const experience = {
-    0: "Levies",
+    0: "Levy",
     1: "Regular",
     2: "Veteran",
     3: "Elite",
