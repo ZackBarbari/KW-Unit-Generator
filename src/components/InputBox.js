@@ -1,17 +1,16 @@
 import './Input.css';
 import InputForm from "./forms/input";
 import Dropdown from "./forms/dropdown";
-import CheckBox from "./forms/checkbox";
+//import CheckBox from "./forms/checkbox";
 import ancestries from "../constants/ancestries";
 import equipment from "../constants/equipment";
 import experience from "../constants/experience";
 import type from "../constants/type";
 import size from '../constants/size';
 import races from '../constants/races';
-import { useRef, useState } from "react";
+import { useRef } from "react";
 
 const InputBox = ({onMod}) => {
-    const [raceOverride, setRaceOverride] = useState();
 
     const nameRef = useRef();
     const commandRef = useRef();
@@ -19,10 +18,9 @@ const InputBox = ({onMod}) => {
     const typeRef = useRef();
     const expRef = useRef();
     const equipRef = useRef();
-    const raceOverrideRef = useRef();
     const raceRef = useRef();
     const sizeRef = useRef();
-    const traitRef = [];
+    //const traitRef = [];
 
     const onSave = () => {
         const body = {
@@ -34,15 +32,10 @@ const InputBox = ({onMod}) => {
             equip: equipRef.current.value,
             race: raceRef.current.value,
             size: sizeRef.current.value,
-            traits: traitRef.current.value
+            //traits: traitRef.current.value
         }
         //console.log(body);
         onMod(body)
-    }
-
-    function overrideRace() {
-        setRaceOverride(raceOverrideRef.current.checked);
-        //console.log(ancestryOverride);
     }
 
     return (
@@ -70,14 +63,6 @@ const InputBox = ({onMod}) => {
             passedValue={"Human"} 
             passedOptions={races}
             onChange={onSave}/>
-        {raceOverride && (
-            <InputForm
-                label="Unit Race"
-                ref={raceRef}
-                passedValue={""} 
-                //onChange={onSave}
-                />
-        )}
         <Dropdown
             label="Type"
             ref={typeRef}

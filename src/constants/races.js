@@ -1,4 +1,5 @@
 const races = {
+    Other: "Other",
     Air_Elemental: "Air Elemental",
     Banshee: "Banshee",
     Barbed_Devil: "Barbed Devil",
