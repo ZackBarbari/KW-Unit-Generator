@@ -10,8 +10,6 @@ import races from '../constants/races';
 import { useRef, useState } from "react";
 import defaults from '../constants/statics/defaults';
 import ancestryassociation from '../constants/ancestryassociation';
-import racialtraits from '../constants/racialtraits';
-//import traitMap from '../constants/traitList';
 import SelectiveDropdown from './forms/racedropdown';
 import raceMap from '../constants/raceMap';
 
@@ -27,6 +25,7 @@ const InputBox = ({onMod}) => {
     const equipRef = useRef(defaults.equip);
     const raceRef = useRef(defaults.race);
     const sizeRef = useRef(defaults.size);
+    const traitRef = useRef(raceMap.get(defaults.race).traits);
 
     const onSave = () => {
         //console.log(racialtraits)
@@ -44,8 +43,9 @@ const InputBox = ({onMod}) => {
             race: raceMap.get(raceRef.current.value).name,
             //race: ancestryassociation[ancest][raceRef.current.value],
             size: raceMap.get(raceRef.current.value).size,
-            //traits: traitRef.current.value
+            //traits: traitRef
         }
+        console.log(raceMap.get(raceRef.current.value).traits)
         console.log(body)
         onMod(body)
     }
