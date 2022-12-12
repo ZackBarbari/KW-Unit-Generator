@@ -5,7 +5,7 @@ const ancestryassociation = {
     Dragonborn : [races.Other, races.Dragonborn, races.Black_Dragon, races.Blue_Dragon, races.Green_Dragon, races.Red_Dragon],
     Dwarf: [races.Other, races.Dwarf, races.Duregar, races.Fire_Dwarf],
     Elf: [races.Other, races.Elf, races.Drow],
-    Fiend: [races.Other, races.Barbed_Devil, races.Bearded_Devil, races.Chasme, races.Dretch, races.Hell_Hound, races.Shadow_Demon, races.Nightmare, races.Vrock],
+    Fiend: [races.Other, races.Barbed_Devil, races.Bearded_Devil, races.Chasme, races.Dretch, races.Hell_Hound, races.Shadow_Demon, races.Stone_Devil, races.Nightmare, races.Vrock],
     Giant: [races.Other, races.Fire_Giant, races.Frost_Giant, races.Hill_Giant, races.Stone_Giant, races.Troll, races.Ogre, races.Cyclops, races.Ettin],
     Gnoll: [races.Other, races.Gnoll],
     Gnome: [races.Other, races.Gnome],

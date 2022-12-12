@@ -11,6 +11,9 @@ import races from '../constants/races';
 import { useRef, useState } from "react";
 import defaults from '../constants/defaults';
 import ancestryassociation from '../constants/ancestryassociation';
+import racialtraits from '../constants/racialtraits';
+import traitMap from '../constants/traitList';
+import SelectiveDropdown from './forms/racedropdown';
 
 const InputBox = ({onMod}) => {
     const [isLevy, setLevy] = useState(false);
@@ -26,7 +29,10 @@ const InputBox = ({onMod}) => {
     const sizeRef = useRef(defaults.size);
 
     const onSave = () => {
-        //console.log(ancestryassociation.Dragonborn[raceRef.current.value])
+        console.log(racialtraits)
+        /*for (var i = 0; i < racialtraits.get(raceRef.current.value).traits.length; i++) {
+            console.log(traitMap[racialtraits.get(raceRef.current.value).traits[i]])
+        }*/
         const body = {
             name: nameRef.current.value,
             commander: commandRef.current.value,
@@ -34,9 +40,9 @@ const InputBox = ({onMod}) => {
             unit: typeRef.current.value,
             exp: typeRef.current.value === 'levy' ? 0 : expRef.current.value,
             equip: typeRef.current.value === 'levy' ? 0 : equipRef.current.value,
-            race: raceRef.current.value,
+            race: raceRef.current.value.name,
             //race: ancestryassociation[ancest][raceRef.current.value],
-            size: sizeRef.current.value,
+            size: raceRef.current.value.size,
             //traits: traitRef.current.value
         }
         console.log(body)
@@ -73,7 +79,7 @@ const InputBox = ({onMod}) => {
             passedOptions={ancestries}
             onChange={changeAncestry}
             />
-        <Dropdown
+        <SelectiveDropdown
             label="Race"
             ref={raceRef}
             passedValue={1} 
@@ -105,15 +111,7 @@ const InputBox = ({onMod}) => {
            //onChange={onSave}
             />
             </>
-            )}
-        <Dropdown
-            label="Size"
-            ref={sizeRef}
-            passedValue={defaults.size} 
-            passedOptions={size}
-            //onChange={onSave}
-            />
-        
+            )}        
             Card Theme:
             <br></br>
         <input

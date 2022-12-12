@@ -1,4 +1,4 @@
-const traits = {
+const traitList = {
     0 : "AAUUUGH!!!" ,
     1 : "Adaptable" ,
     2 : "Aerial Bombardment" ,
@@ -172,4 +172,4 @@ const traits = {
     170 : "You Will Be Upgraded" ,
 };
   
-  export default traits;
+  export default traitList;
