@@ -3,17 +3,17 @@ import InputForm from "./forms/input";
 import Dropdown from "./forms/dropdown";
 //import CheckBox from "./forms/checkbox";
 import ancestries from "../constants/ancestries";
-import equipment from "../constants/equipment";
+import equipment from "../constants/statics/equipment";
 import experience from "../constants/experience";
-import type from "../constants/type";
-import size from '../constants/size';
+import type from "../constants/statics/type";
 import races from '../constants/races';
 import { useRef, useState } from "react";
-import defaults from '../constants/defaults';
+import defaults from '../constants/statics/defaults';
 import ancestryassociation from '../constants/ancestryassociation';
 import racialtraits from '../constants/racialtraits';
-import traitMap from '../constants/traitList';
+//import traitMap from '../constants/traitList';
 import SelectiveDropdown from './forms/racedropdown';
+import raceMap from '../constants/raceMap';
 
 const InputBox = ({onMod}) => {
     const [isLevy, setLevy] = useState(false);
@@ -29,10 +29,11 @@ const InputBox = ({onMod}) => {
     const sizeRef = useRef(defaults.size);
 
     const onSave = () => {
-        console.log(racialtraits)
+        //console.log(racialtraits)
         /*for (var i = 0; i < racialtraits.get(raceRef.current.value).traits.length; i++) {
             console.log(traitMap[racialtraits.get(raceRef.current.value).traits[i]])
         }*/
+        console.log(raceRef.current.value)
         const body = {
             name: nameRef.current.value,
             commander: commandRef.current.value,
@@ -40,9 +41,9 @@ const InputBox = ({onMod}) => {
             unit: typeRef.current.value,
             exp: typeRef.current.value === 'levy' ? 0 : expRef.current.value,
             equip: typeRef.current.value === 'levy' ? 0 : equipRef.current.value,
-            race: raceRef.current.value.name,
+            race: raceMap.get(raceRef.current.value).name,
             //race: ancestryassociation[ancest][raceRef.current.value],
-            size: raceRef.current.value.size,
+            size: raceMap.get(raceRef.current.value).size,
             //traits: traitRef.current.value
         }
         console.log(body)
@@ -65,11 +66,13 @@ const InputBox = ({onMod}) => {
         <InputForm
             label="Name"
             ref={nameRef}
+            passedValue={defaults.name}
             //onChange={onSave}
             />
         <InputForm
             label="Commander"
             ref={commandRef}
+            passedValue={defaults.commander}
             //onChange={onSave}
             />
         <Dropdown

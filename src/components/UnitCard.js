@@ -1,5 +1,5 @@
 import './Card.css';
-import defaults from '../constants/defaults';
+import defaults from '../constants/statics/defaults';
 
 const UnitCard = ({name, commander, ancestry, unit, exp, equip, race, size}) => {
     
