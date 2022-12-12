@@ -1,5 +1,6 @@
 .input-columns {
     width: 25%;
+    min-width: 300px;
     background-color: rgba(207, 219, 238, 0.504);
     padding: 30px;
   }

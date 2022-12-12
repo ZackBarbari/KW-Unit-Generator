@@ -1,5 +1,6 @@
 .card-outline {
     width: 50%;
+    min-width: 500px;
     aspect-ratio: 5 / 3;
     border-radius: 25px;
     border: 20px solid rgb(0, 0, 0);
