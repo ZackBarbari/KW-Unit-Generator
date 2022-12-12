@@ -7,6 +7,7 @@ import equipment from "../constants/equipment";
 import experience from "../constants/experience";
 import type from "../constants/type";
 import size from '../constants/size';
+import races from '../constants/races';
 import { useRef, useState } from "react";
 
 const InputBox = ({onMod}) => {
@@ -39,7 +40,7 @@ const InputBox = ({onMod}) => {
         onMod(body)
     }
 
-    function overrideAncestor() {
+    function overrideRace() {
         setRaceOverride(raceOverrideRef.current.checked);
         //console.log(ancestryOverride);
     }
@@ -66,7 +67,7 @@ const InputBox = ({onMod}) => {
         <Dropdown
             label="Race"
             ref={raceRef}
-            passedValue={body.ancestry} 
+            passedValue={"Human"} 
             passedOptions={races}
             onChange={onSave}/>
         {raceOverride && (
