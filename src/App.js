@@ -6,7 +6,7 @@ const App = () => {
   const [body, setBody] = useState();
 
   const modifyCard = (body) => {
-    console.log("type: " + body.unit)
+    //console.log("type: " + body.unit)
     setBody(body)
   }
 

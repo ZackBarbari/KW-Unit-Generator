@@ -20,7 +20,7 @@ const UnitCard = ({name, commander, ancestry, unit, exp, equip, race, size}) => 
 }
 
 UnitCard.defaultProps = {
-    unit: "levy"
+    unit: "infantry"
     //size: 6
 }
 
