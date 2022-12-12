@@ -73,7 +73,7 @@ const InputBox = ({onMod}) => {
         <Dropdown
             label="Type"
             ref={typeRef}
-            passedValue={defaults.type} 
+            passedValue={defaults.unit} 
             passedOptions={type}
             onChange={setLevy}
             />
