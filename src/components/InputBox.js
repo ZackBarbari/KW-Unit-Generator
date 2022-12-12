@@ -23,6 +23,12 @@ const InputBox = ({onMod}) => {
     const raceRef = useRef(defaults.race);
     const sizeRef = useRef(defaults.size);
 
+    {Object.entries(races).map(([k, v]) => (
+        <option value={v} key={k}>
+        </option>
+      ))}
+      console.log(races.Air_Elemental)
+
     const onSave = () => {
         const body = {
             name: nameRef.current.value,

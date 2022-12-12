@@ -1,0 +1,20 @@
+const ancestryassociation = {
+    Construct: [Other, Construct, Inexorable],
+    Dragonborn : [Other, Dragonborn, Black_Dragon, Blue_Dragon, Green_Dragon, Red_Dragon], 
+    Dwarf: [Other, Dwarf, Duregar, Fire_Dwarf],
+    Elf: [Other, Elf, Drow],
+    Fiend: [Other, Barbed_Devil, Bearded_Devil, Chasme, Dretch, Hell_Hound, Shadow_Demon, Nightmare, Vrock],
+    Giant: [Other, Fire_Giant, Frost_Giant, Hill_Giant, Stone_Giant, Troll, Ogre, Cyclops, Ettin],
+    Gnoll: [Other, Gnoll],
+    Gnome: [Other, Gnome],
+    Goblinoid: [Other, Goblin, Hobgoblin, Bugbear],
+    Human: [Other, Human, Time_Raider],
+    Kobold: [Other, Kobold],
+    Lizardfolk: [Other, Dinosaur],
+    Monstrous: [Other, Basilisk, Bulette, Chimera, Frog_of_War, Manticore, Minotaur, Owlbear, Purple_Worm, Roc, Wyvern],
+    Plant: [Other, Shambling_Mound, Treant],
+    Orc: [Other, Orc, ],
+    Special: [Other, Air_Elemental, Earth_Elemental, Fire_Elemental, Water_Elemental, Black_Pudding, Centaur, Drider, Harpy, Mynconoid, Salamander, Sprite, Triton, Virtue, Mantis_Knight],
+    Undead: [Other, Banshee, Ghoul, Shadow, Skeleton, Wight, Wraith, Zombie],
+}
+export default ancestryassociation;

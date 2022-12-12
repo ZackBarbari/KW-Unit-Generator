@@ -25,7 +25,6 @@ const races = {
     Earth_Elemental: "Earth Elemental",
     Elf: "Elf",
     Ettin: "Ettin",
-    Fiend: "Fiend",
     Fire_Dwarf: "Fire Dwarf",
     Fire_Elemental: "Fire Elemental",
     Fire_Giant: "Fire Giant",

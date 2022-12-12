@@ -1,4 +1,5 @@
 const ancestries = {
+    Construct: "Construct",
     Dragonborn: "Dragonborn",
     Dwarf: "Dwarf",
     Elf: "Elf",
@@ -11,6 +12,7 @@ const ancestries = {
     Kobold: "Kobold",
     Lizardfolk: "Lizardfolk",
     Monstrous: "Monstrous",
+    Plant: "Plant",
     Orc: "Orc",
     Special: "Special",
     Undead: "Undead",
