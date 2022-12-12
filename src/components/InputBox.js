@@ -10,9 +10,11 @@ import size from '../constants/size';
 import races from '../constants/races';
 import { useRef, useState } from "react";
 import defaults from '../constants/defaults';
+import ancestryassociation from '../constants/ancestryassociation';
 
 const InputBox = ({onMod}) => {
-    const [isLevy, checkLevy] = useState(false);
+    const [isLevy, setLevy] = useState(false);
+    const [ancest, setAncest] = useState(defaults.ancestry);
 
     const nameRef = useRef(defaults.name);
     const commandRef = useRef();
@@ -23,13 +25,8 @@ const InputBox = ({onMod}) => {
     const raceRef = useRef(defaults.race);
     const sizeRef = useRef(defaults.size);
 
-    {Object.entries(races).map(([k, v]) => (
-        <option value={v} key={k}>
-        </option>
-      ))}
-      console.log(races.Air_Elemental)
-
     const onSave = () => {
+        //console.log(ancestryassociation.Dragonborn[raceRef.current.value])
         const body = {
             name: nameRef.current.value,
             commander: commandRef.current.value,
@@ -38,6 +35,7 @@ const InputBox = ({onMod}) => {
             exp: typeRef.current.value === 'levy' ? 0 : expRef.current.value,
             equip: typeRef.current.value === 'levy' ? 0 : equipRef.current.value,
             race: raceRef.current.value,
+            //race: ancestryassociation[ancest][raceRef.current.value],
             size: sizeRef.current.value,
             //traits: traitRef.current.value
         }
@@ -45,9 +43,15 @@ const InputBox = ({onMod}) => {
         onMod(body)
     }
 
-    function setLevy() {
-        checkLevy(typeRef.current.value === 'levy');
+    function changeLevy() {
+        setLevy(typeRef.current.value === 'levy');
     }
+
+    function changeAncestry() {
+        setAncest(ancestRef.current.value);
+    }
+
+
 
     return (
         <>
@@ -67,13 +71,14 @@ const InputBox = ({onMod}) => {
             ref={ancestRef}
             passedValue={defaults.ancestry} 
             passedOptions={ancestries}
-            //onChange={onSave}
+            onChange={changeAncestry}
             />
         <Dropdown
             label="Race"
             ref={raceRef}
-            passedValue={defaults.race} 
+            passedValue={1} 
             passedOptions={races}
+            //passedOptions={ancestryassociation[ancest]}
             //onChange={onSave}
             />
         <Dropdown
@@ -81,7 +86,7 @@ const InputBox = ({onMod}) => {
             ref={typeRef}
             passedValue={defaults.unit} 
             passedOptions={type}
-            onChange={setLevy}
+            onChange={changeLevy}
             />
         {!isLevy && (
             <>

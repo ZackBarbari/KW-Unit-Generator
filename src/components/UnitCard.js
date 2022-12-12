@@ -7,7 +7,8 @@ const UnitCard = ({name, commander, ancestry, unit, exp, equip, race, size}) => 
         <>
         <div className='card-outline'>
             <img src={ require(`../symbols/type/${unit}.jpg`)} alt="Type Icon" width="140 * 50%" height="140 * 50%"></img>
-            <div className='rhombus'></div>
+            <div className='size-rhombus'></div>
+            <div className='tier-rhombus'></div>
             {size} <br></br>
             {name}<br></br>
             {commander}<br></br>
