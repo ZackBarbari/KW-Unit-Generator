@@ -5,10 +5,10 @@ import { useState } from 'react';
 const App = () => {
 	const [body, setBody] = useState();
 
-	const modifyCard = body => {
-		console.log('type: ' + body.unit);
-		setBody(body);
-	};
+  const modifyCard = (body) => {
+    //console.log("type: " + body.unit)
+    setBody(body)
+  }
 
 	return (
 		<>

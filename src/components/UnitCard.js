@@ -1,17 +1,14 @@
-import { useState } from 'react';
 import './Card.css';
+import defaults from '../constants/statics/defaults';
 
 const UnitCard = ({name, commander, ancestry, unit, exp, equip, race, size}) => {
-
-    //setType(unit);
-
-    //console.log("EEEE " + unit)
     
     return (
         <>
         <div className='card-outline'>
-            <img src={ require(`../symbols/${unit}.jpg`)} alt="Type Icon" width="140 * 50%" height="140 * 50%"></img>
-            <div className='rhombus'></div>
+            <img src={ require(`../symbols/type/${unit}.jpg`)} alt="Type Icon" width="140 * 50%" height="140 * 50%"></img>
+            <div className='size-rhombus'></div>
+            <div className='tier-rhombus'></div>
             {size} <br></br>
             {name}<br></br>
             {commander}<br></br>
@@ -24,9 +21,6 @@ const UnitCard = ({name, commander, ancestry, unit, exp, equip, race, size}) => 
     )
 }
 
-UnitCard.defaultProps = {
-    unit: "levy"
-    //size: 6
-}
+UnitCard.defaultProps = defaults
 
 export default UnitCard;

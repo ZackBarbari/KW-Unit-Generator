@@ -7,12 +7,23 @@
     padding: 10px;
   }
 
-  .rhombus {
+  .size-rhombus {
+    float:right;
     background: rgb(255, 255, 255);
     margin: 100px auto;
     border: 5px solid #000;
-    width: 100px;
-    height: 100px;
-    margin-top: 100px;
+    width: 175px;
+    height: 175px;
+    margin-top: 5%;
+    margin-right: 5%;
+    transform: rotate(45deg);
+  }
+  .tier-rhombus {
+    float:right;
+    border: 5px solid #000;
+    width: 175px;
+    height: 175px;
+    margin-top: 175px;
+    margin-right: -185px;
     transform: rotate(45deg);
   }

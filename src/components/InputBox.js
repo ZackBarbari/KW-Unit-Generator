@@ -1,46 +1,64 @@
 import './Input.css';
 import InputForm from "./forms/input";
 import Dropdown from "./forms/dropdown";
-import CheckBox from "./forms/checkbox";
+//import CheckBox from "./forms/checkbox";
 import ancestries from "../constants/ancestries";
-import equipment from "../constants/equipment";
+import equipment from "../constants/statics/equipment";
 import experience from "../constants/experience";
-import type from "../constants/type";
-import size from '../constants/size';
+import type from "../constants/statics/type";
+import races from '../constants/races';
 import { useRef, useState } from "react";
+import defaults from '../constants/statics/defaults';
+import ancestryassociation from '../constants/ancestryassociation';
+import SelectiveDropdown from './forms/racedropdown';
+import raceMap from '../constants/raceMap';
 
 const InputBox = ({onMod}) => {
-    const [ancestryOverride, setAncestryOverride] = useState();
+    const [isLevy, setLevy] = useState(false);
+    const [ancest, setAncest] = useState(defaults.ancestry);
 
-    const nameRef = useRef();
+    const nameRef = useRef(defaults.name);
     const commandRef = useRef();
-    const ancestRef = useRef();
-    const typeRef = useRef();
-    const expRef = useRef();
-    const equipRef = useRef();
-    const ancestOverrideRef = useRef();
-    const raceRef = useRef();
-    const sizeRef = useRef();
+    const ancestRef = useRef(defaults.ancestry);
+    const typeRef = useRef(defaults.type);
+    const expRef = useRef(defaults.exp);
+    const equipRef = useRef(defaults.equip);
+    const raceRef = useRef(defaults.race);
+    const sizeRef = useRef(defaults.size);
+    const traitRef = useRef(raceMap.get(defaults.race).traits);
 
     const onSave = () => {
+        //console.log(racialtraits)
+        /*for (var i = 0; i < racialtraits.get(raceRef.current.value).traits.length; i++) {
+            console.log(traitMap[racialtraits.get(raceRef.current.value).traits[i]])
+        }*/
+        console.log(raceRef.current.value)
         const body = {
             name: nameRef.current.value,
             commander: commandRef.current.value,
             ancestry: ancestRef.current.value,
             unit: typeRef.current.value,
-            exp: expRef.current.value,
-            equip: equipRef.current.value,
-            race: ancestOverrideRef.current.checked ? raceRef.current.value : null,
-            size: sizeRef.current.value
+            exp: typeRef.current.value === 'levy' ? 0 : expRef.current.value,
+            equip: typeRef.current.value === 'levy' ? 0 : equipRef.current.value,
+            race: raceMap.get(raceRef.current.value).name,
+            //race: ancestryassociation[ancest][raceRef.current.value],
+            size: raceMap.get(raceRef.current.value).size,
+            //traits: traitRef
         }
-        //console.log(body);
+        console.log(raceMap.get(raceRef.current.value).traits)
+        console.log(body)
         onMod(body)
     }
 
-    function overrideAncestor() {
-        setAncestryOverride(ancestOverrideRef.current.checked);
-        //console.log(ancestryOverride);
+    function changeLevy() {
+        setLevy(typeRef.current.value === 'levy');
     }
+
+    function changeAncestry() {
+        setAncest(ancestRef.current.value);
+    }
+
+
 
     return (
         <>
@@ -48,57 +66,62 @@ const InputBox = ({onMod}) => {
         <InputForm
             label="Name"
             ref={nameRef}
+            passedValue={defaults.name}
             //onChange={onSave}
             />
         <InputForm
             label="Commander"
             ref={commandRef}
+            passedValue={defaults.commander}
             //onChange={onSave}
             />
         <Dropdown
             label="Ancestry"
             ref={ancestRef}
-            passedValue={"Human"} 
+            passedValue={defaults.ancestry} 
             passedOptions={ancestries}
-            onChange={onSave}/>
-        <CheckBox
-            label="Ancestry Override"
-            ref={ancestOverrideRef}
-            onChange={overrideAncestor}/>
-        {ancestryOverride && (
-            <InputForm
-                label="Unit Race"
-                ref={raceRef}
-                passedValue={""} 
-                //onChange={onSave}
-                />
-        )}
+            onChange={changeAncestry}
+            />
+        <SelectiveDropdown
+            label="Race"
+            ref={raceRef}
+            passedValue={1} 
+            passedOptions={races}
+            //passedOptions={ancestryassociation[ancest]}
+            //onChange={onSave}
+            />
         <Dropdown
             label="Type"
             ref={typeRef}
-            passedValue={"levy"} 
+            passedValue={defaults.unit} 
             passedOptions={type}
-            onChange={onSave}
+            onChange={changeLevy}
             />
+        {!isLevy && (
+            <>
         <Dropdown
             label="Experience"
             ref={expRef}
-            passedValue={1} 
+            passedValue={defaults.exp} 
             passedOptions={experience}
-            onChange={onSave}/>
+            //onChange={onSave}
+            />
         <Dropdown
             label="Equipment"
             ref={equipRef}
-            passedValue={0} 
+            passedValue={defaults.equip} 
             passedOptions={equipment}
-            onChange={onSave}/>
-        <Dropdown
-            label="Size"
-            ref={sizeRef}
-            passedValue={6} 
-            passedOptions={size}
-            onChange={onSave}/>
-        Card Theme:
+           //onChange={onSave}
+            />
+            </>
+            )}        
+            Card Theme:
+            <br></br>
+        <input
+        type ="submit"
+        value="Generate"
+        onClick={onSave}
+        />
         </div>
         </>
     )
