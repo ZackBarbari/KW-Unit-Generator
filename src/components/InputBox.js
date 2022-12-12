@@ -68,7 +68,9 @@ const InputBox = ({onMod}) => {
         setAncest(ancestRef.current.value);
     }
 
-
+    function changeRace() {
+        setRace(raceMap.get(raceRef.current.value).name)
+    }
 
     return (
         <>
@@ -95,10 +97,10 @@ const InputBox = ({onMod}) => {
         <SelectiveDropdown
             label="Race"
             ref={raceRef}
-            passedValue={1} 
+            passedValue={raceMap.get(defaults.race).name} 
             passedOptions={races}
             //passedOptions={ancestryassociation[ancest]}
-            //onChange={onSave}
+            onChange={changeRace}
             />
         <Dropdown
             label="Type"

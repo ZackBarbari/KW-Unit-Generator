@@ -6,7 +6,8 @@ const defaults = {
     exp: 1,
     equip: 0,
     race: "Human",
-    size: 6
+    size: 6,
+    traits: ["Adaptable"]
   };
   
   export default defaults;
