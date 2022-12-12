@@ -9,7 +9,6 @@ import type from "../constants/statics/type";
 import races from '../constants/races';
 import { useRef, useState } from "react";
 import defaults from '../constants/statics/defaults';
-import ancestryassociation from '../constants/ancestryassociation';
 import SelectiveDropdown from './forms/racedropdown';
 import traits from '../constants/traits';
 import raceMap from '../constants/raceMap';
@@ -18,6 +17,7 @@ import traitMap from '../constants/traitMap';
 const InputBox = ({onMod}) => {
     const [isLevy, setLevy] = useState(false);
     const [ancest, setAncest] = useState(defaults.ancestry);
+    const [race, setRace] = useState(defaults.race);
 
     const nameRef = useRef(defaults.name);
     const commandRef = useRef();
@@ -26,7 +26,6 @@ const InputBox = ({onMod}) => {
     const expRef = useRef(defaults.exp);
     const equipRef = useRef(defaults.equip);
     const raceRef = useRef(defaults.race);
-    const sizeRef = useRef(defaults.size);
     const traitRef = useRef();
 
     const onSave = () => {
@@ -57,7 +56,7 @@ const InputBox = ({onMod}) => {
         
         //raceMap.get(raceRef.current.value).traits.forEach(console.log("opopo"));
         //console.log(traits[4, 7].name)
-        //console.log(body)
+        console.log(body)
         onMod(body)
     }
 
@@ -86,7 +85,7 @@ const InputBox = ({onMod}) => {
             passedValue={defaults.commander}
             //onChange={onSave}
             />
-        <Dropdown
+        <SelectiveDropdown
             label="Ancestry"
             ref={ancestRef}
             passedValue={defaults.ancestry} 
