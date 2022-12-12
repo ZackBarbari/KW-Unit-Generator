@@ -11,7 +11,9 @@ import { useRef, useState } from "react";
 import defaults from '../constants/statics/defaults';
 import ancestryassociation from '../constants/ancestryassociation';
 import SelectiveDropdown from './forms/racedropdown';
+import traits from '../constants/traits';
 import raceMap from '../constants/raceMap';
+import traitMap from '../constants/traitMap';
 
 const InputBox = ({onMod}) => {
     const [isLevy, setLevy] = useState(false);
@@ -25,14 +27,20 @@ const InputBox = ({onMod}) => {
     const equipRef = useRef(defaults.equip);
     const raceRef = useRef(defaults.race);
     const sizeRef = useRef(defaults.size);
-    const traitRef = useRef(raceMap.get(defaults.race).traits);
+    const traitRef = useRef();
 
     const onSave = () => {
         //console.log(racialtraits)
         /*for (var i = 0; i < racialtraits.get(raceRef.current.value).traits.length; i++) {
             console.log(traitMap[racialtraits.get(raceRef.current.value).traits[i]])
         }*/
-        console.log(raceRef.current.value)
+        //console.log(raceRef.current.value)
+        var traitList = [];
+        for (var i = 0; i < raceMap.get(raceRef.current.value).traits.length; i++) {
+            //console.log(traitMap.get(raceMap.get(raceRef.current.value).traits[i].toString()).name)
+            traitList[i] = traitMap.get(raceMap.get(raceRef.current.value).traits[i].toString()).name;
+        }
+
         const body = {
             name: nameRef.current.value,
             commander: commandRef.current.value,
@@ -43,10 +51,13 @@ const InputBox = ({onMod}) => {
             race: raceMap.get(raceRef.current.value).name,
             //race: ancestryassociation[ancest][raceRef.current.value],
             size: raceMap.get(raceRef.current.value).size,
-            //traits: traitRef
+            traits: traitList
         }
-        console.log(raceMap.get(raceRef.current.value).traits)
-        console.log(body)
+        //console.log(raceMap.get(raceRef.current.value).traits.length)
+        
+        //raceMap.get(raceRef.current.value).traits.forEach(console.log("opopo"));
+        //console.log(traits[4, 7].name)
+        //console.log(body)
         onMod(body)
     }
 

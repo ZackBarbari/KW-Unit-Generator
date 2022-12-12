@@ -1,7 +1,7 @@
 import './Card.css';
 import defaults from '../constants/statics/defaults';
 
-const UnitCard = ({name, commander, ancestry, unit, exp, equip, race, size}) => {
+const UnitCard = ({name, commander, ancestry, unit, exp, equip, race, size, traits}) => {
     
     return (
         <>
@@ -16,6 +16,7 @@ const UnitCard = ({name, commander, ancestry, unit, exp, equip, race, size}) => 
             {exp}<br></br>
             {equip}<br></br>
             {race}<br></br>
+            {traits}
         </div>
         </>
     )
