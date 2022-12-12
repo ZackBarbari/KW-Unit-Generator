@@ -1,4 +1,5 @@
 import './Card.css';
+import defaults from '../constants/defaults';
 
 const UnitCard = ({name, commander, ancestry, unit, exp, equip, race, size}) => {
     
@@ -19,9 +20,6 @@ const UnitCard = ({name, commander, ancestry, unit, exp, equip, race, size}) => 
     )
 }
 
-UnitCard.defaultProps = {
-    unit: "infantry"
-    //size: 6
-}
+UnitCard.defaultProps = defaults
 
 export default UnitCard;
