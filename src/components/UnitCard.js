@@ -1,11 +1,6 @@
-import { useState } from 'react';
 import './Card.css';
 
 const UnitCard = ({name, commander, ancestry, unit, exp, equip, race, size}) => {
-
-    //setType(unit);
-
-    //console.log("EEEE " + unit)
     
     return (
         <>

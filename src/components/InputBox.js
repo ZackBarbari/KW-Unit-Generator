@@ -10,7 +10,7 @@ import size from '../constants/size';
 import { useRef, useState } from "react";
 
 const InputBox = ({onMod}) => {
-    const [ancestryOverride, setAncestryOverride] = useState();
+    const [raceOverride, setRaceOverride] = useState();
 
     const nameRef = useRef();
     const commandRef = useRef();
@@ -18,9 +18,10 @@ const InputBox = ({onMod}) => {
     const typeRef = useRef();
     const expRef = useRef();
     const equipRef = useRef();
-    const ancestOverrideRef = useRef();
+    const raceOverrideRef = useRef();
     const raceRef = useRef();
     const sizeRef = useRef();
+    const traitRef = [];
 
     const onSave = () => {
         const body = {
@@ -30,15 +31,16 @@ const InputBox = ({onMod}) => {
             unit: typeRef.current.value,
             exp: expRef.current.value,
             equip: equipRef.current.value,
-            race: ancestOverrideRef.current.checked ? raceRef.current.value : null,
-            size: sizeRef.current.value
+            race: raceRef.current.value,
+            size: sizeRef.current.value,
+            traits: traitRef.current.value
         }
         //console.log(body);
         onMod(body)
     }
 
     function overrideAncestor() {
-        setAncestryOverride(ancestOverrideRef.current.checked);
+        setRaceOverride(raceOverrideRef.current.checked);
         //console.log(ancestryOverride);
     }
 
@@ -56,16 +58,18 @@ const InputBox = ({onMod}) => {
             //onChange={onSave}
             />
         <Dropdown
-            label="Ancestry"
+            label="Ancestry Icon"
             ref={ancestRef}
             passedValue={"Human"} 
             passedOptions={ancestries}
             onChange={onSave}/>
-        <CheckBox
-            label="Ancestry Override"
-            ref={ancestOverrideRef}
-            onChange={overrideAncestor}/>
-        {ancestryOverride && (
+        <Dropdown
+            label="Race"
+            ref={raceRef}
+            passedValue={body.ancestry} 
+            passedOptions={races}
+            onChange={onSave}/>
+        {raceOverride && (
             <InputForm
                 label="Unit Race"
                 ref={raceRef}
