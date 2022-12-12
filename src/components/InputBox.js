@@ -6,6 +6,7 @@ import ancestries from "../constants/ancestries";
 import equipment from "../constants/equipment";
 import experience from "../constants/experience";
 import type from "../constants/type";
+import size from '../constants/size';
 import { useRef, useState } from "react";
 
 const InputBox = ({onMod}) => {
@@ -19,6 +20,7 @@ const InputBox = ({onMod}) => {
     const equipRef = useRef();
     const ancestOverrideRef = useRef();
     const raceRef = useRef();
+    const sizeRef = useRef();
 
     const onSave = () => {
         const body = {
@@ -29,8 +31,9 @@ const InputBox = ({onMod}) => {
             exp: expRef.current.value,
             equip: equipRef.current.value,
             race: ancestOverrideRef.current.checked ? raceRef.current.value : null,
+            size: sizeRef.current.value
         }
-        console.log(body);
+        //console.log(body);
         onMod(body)
     }
 
@@ -88,6 +91,12 @@ const InputBox = ({onMod}) => {
             ref={equipRef}
             passedValue={0} 
             passedOptions={equipment}
+            onChange={onSave}/>
+        <Dropdown
+            label="Size"
+            ref={sizeRef}
+            passedValue={6} 
+            passedOptions={size}
             onChange={onSave}/>
         Card Theme:
         </div>
