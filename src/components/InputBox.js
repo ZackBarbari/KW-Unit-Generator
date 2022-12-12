@@ -9,19 +9,19 @@ import type from "../constants/type";
 import size from '../constants/size';
 import races from '../constants/races';
 import { useRef, useState } from "react";
-import { Button } from 'semantic-ui-react';
+import defaults from '../constants/defaults';
 
 const InputBox = ({onMod}) => {
     const [isLevy, checkLevy] = useState(false);
 
-    const nameRef = useRef();
+    const nameRef = useRef(defaults.name);
     const commandRef = useRef();
-    const ancestRef = useRef('human');
-    const typeRef = useRef('infantry');
-    const expRef = useRef(1);
-    const equipRef = useRef(0);
-    const raceRef = useRef('human');
-    const sizeRef = useRef('6');
+    const ancestRef = useRef(defaults.ancestry);
+    const typeRef = useRef(defaults.type);
+    const expRef = useRef(defaults.exp);
+    const equipRef = useRef(defaults.equip);
+    const raceRef = useRef(defaults.race);
+    const sizeRef = useRef(defaults.size);
 
     const onSave = () => {
         const body = {
@@ -57,23 +57,23 @@ const InputBox = ({onMod}) => {
             //onChange={onSave}
             />
         <Dropdown
-            label="Ancestry Icon"
+            label="Ancestry"
             ref={ancestRef}
-            passedValue={"Human"} 
+            passedValue={defaults.ancestry} 
             passedOptions={ancestries}
             //onChange={onSave}
             />
         <Dropdown
             label="Race"
             ref={raceRef}
-            passedValue={"Human"} 
+            passedValue={defaults.race} 
             passedOptions={races}
             //onChange={onSave}
             />
         <Dropdown
             label="Type"
             ref={typeRef}
-            passedValue={"infantry"} 
+            passedValue={defaults.type} 
             passedOptions={type}
             onChange={setLevy}
             />
@@ -82,14 +82,14 @@ const InputBox = ({onMod}) => {
         <Dropdown
             label="Experience"
             ref={expRef}
-            passedValue={1} 
+            passedValue={defaults.exp} 
             passedOptions={experience}
             //onChange={onSave}
             />
         <Dropdown
             label="Equipment"
             ref={equipRef}
-            passedValue={0} 
+            passedValue={defaults.equip} 
             passedOptions={equipment}
            //onChange={onSave}
             />
@@ -98,7 +98,7 @@ const InputBox = ({onMod}) => {
         <Dropdown
             label="Size"
             ref={sizeRef}
-            passedValue={6} 
+            passedValue={defaults.size} 
             passedOptions={size}
             //onChange={onSave}
             />
