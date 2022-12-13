@@ -1,8 +1,9 @@
 import './Card.css';
 import defaults from '../constants/statics/defaults';
+import traitMap from '../constants/traitMap';
+import trait from '../constants/traits';
 
 const UnitCard = ({name, commander, ancestry, unit, exp, equip, race, size, traits}) => {
-    
     return (
         <>
         <div className='card-outline'>
@@ -16,7 +17,10 @@ const UnitCard = ({name, commander, ancestry, unit, exp, equip, race, size, trai
             {exp}<br></br>
             {equip}<br></br>
             {race}<br></br>
-            {traits}
+            {traits[0]}<br></br>
+            {traits[1]}<br></br>
+            {traits[2]}<br></br>
+            {traits[3]}
         </div>
         </>
     )

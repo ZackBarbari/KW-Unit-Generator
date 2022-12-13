@@ -10,7 +10,6 @@ import races from '../constants/races';
 import { useRef, useState } from "react";
 import defaults from '../constants/statics/defaults';
 import SelectiveDropdown from './forms/racedropdown';
-import traits from '../constants/traits';
 import raceMap from '../constants/raceMap';
 import traitMap from '../constants/traitMap';
 
@@ -29,6 +28,7 @@ const InputBox = ({onMod}) => {
     var list = [];
 
     const onSave = () => {
+        console.log(traitList)
         const body = {
             name: nameRef.current.value,
             commander: commandRef.current.value,
@@ -54,6 +54,7 @@ const InputBox = ({onMod}) => {
         for (var i = 0; i < raceMap.get(raceRef.current.value).traits.length; i++) {
             list[i] = traitMap.get(raceMap.get(raceRef.current.value).traits[i].toString()).name;
         }
+        //console.log(raceMap.get(raceRef.current.value).traits)
         setTraitList(list)
         //onSave();
     }

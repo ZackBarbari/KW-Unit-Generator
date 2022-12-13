@@ -12,7 +12,7 @@ const App = () => {
 
   return (
     <>
-    <div className="App">
+    <div className="pagebase">
       <h1>Kingdoms and Warfare</h1>
       <h2>Unit Card Generator</h2>
       <InputBox onMod={modifyCard}/>
