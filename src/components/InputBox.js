@@ -127,7 +127,7 @@ const InputBox = ({onMod}) => {
         />
         </div>
         {race && (
-            `${traitList.map((trait) => `${trait.name} ${trait.description}`)}`
+            traitList.map((trait) => (<div>{trait.name} {trait.description}</div>))
         )}
         </>
     )

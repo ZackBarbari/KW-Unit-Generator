@@ -532,7 +532,7 @@ const traits = {
   107: {
     name: "Mobile.",
     description:
-      "This unit has advantage on the Command test when using the Follow Up maneuver, and can move back 2 spaces when using the Withdraw maneuver. ."
+      "This unit has advantage on the Command test when using the Follow Up maneuver, and can move back 2 spaces when using the Withdraw maneuver."
   },
   108: {
     name: "Nature’s Bond.",
