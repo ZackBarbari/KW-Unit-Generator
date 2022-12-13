@@ -1,3 +1,6 @@
+import traitMap from "../traitMap";
+import raceMap from "../raceMap";
+
 const defaults = {
     name: "Human Infantry", 
     commander:"",
@@ -7,7 +10,7 @@ const defaults = {
     equip: 0,
     race: "Human",
     size: 6,
-    traits: ["Adaptable"]
+    traits: [traitMap.get(raceMap.get("Human").traits.toString())]
   };
   
   export default defaults;

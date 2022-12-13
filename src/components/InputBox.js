@@ -27,6 +27,9 @@ const InputBox = ({onMod}) => {
     const raceRef = useRef(defaults.race);
     var list = [];
 
+    //console.log(raceMap.get("Human").traits)
+
+
     const onSave = () => {
         console.log(traitList)
         const body = {
@@ -52,7 +55,7 @@ const InputBox = ({onMod}) => {
     function changeRace() {
         setRace(raceMap.get(raceRef.current.value).name)
         for (var i = 0; i < raceMap.get(raceRef.current.value).traits.length; i++) {
-            list[i] = traitMap.get(raceMap.get(raceRef.current.value).traits[i].toString()).name;
+            list[i] = traitMap.get(raceMap.get(raceRef.current.value).traits[i].toString());
         }
         //console.log(raceMap.get(raceRef.current.value).traits)
         setTraitList(list)
@@ -123,7 +126,7 @@ const InputBox = ({onMod}) => {
         />
         </div>
         {race && (
-            `${traitList}`
+            `${traitList[0].name}: ${traitList[0].description}`
         )}
         </>
     )
