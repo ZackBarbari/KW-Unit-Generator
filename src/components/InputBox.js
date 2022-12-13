@@ -38,7 +38,7 @@ const InputBox = ({onMod}) => {
             equip: typeRef.current.value === 'levy' ? 0 : equipRef.current.value,
             race: raceMap.get(raceRef.current.value).name,
             size: raceMap.get(raceRef.current.value).size,
-            traits: list
+            traits: traitList
         }
         console.log(body)
         onMod(body)
@@ -111,10 +111,6 @@ const InputBox = ({onMod}) => {
             passedOptions={equipment}
             //onChange={onSave}
             />  
-        {race && (
-            `${traitList}`
-        )}
-        <br />
             </>
             )}        
             Card Theme:
@@ -125,6 +121,9 @@ const InputBox = ({onMod}) => {
         onClick={onSave}
         />
         </div>
+        {race && (
+            `${traitList}`
+        )}
         </>
     )
 }
