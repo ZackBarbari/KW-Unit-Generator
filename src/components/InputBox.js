@@ -16,8 +16,8 @@ import traitMap from '../constants/traitMap';
 
 const InputBox = ({onMod}) => {
     const [isLevy, setLevy] = useState(false);
-    const [ancest, setAncest] = useState(defaults.ancestry);
     const [race, setRace] = useState(defaults.race);
+    const [traitList, setTraitList] = useState(defaults.traits);
 
     const nameRef = useRef(defaults.name);
     const commandRef = useRef();
@@ -26,20 +26,9 @@ const InputBox = ({onMod}) => {
     const expRef = useRef(defaults.exp);
     const equipRef = useRef(defaults.equip);
     const raceRef = useRef(defaults.race);
-    const traitRef = useRef();
+    var list = [];
 
     const onSave = () => {
-        //console.log(racialtraits)
-        /*for (var i = 0; i < racialtraits.get(raceRef.current.value).traits.length; i++) {
-            console.log(traitMap[racialtraits.get(raceRef.current.value).traits[i]])
-        }*/
-        //console.log(raceRef.current.value)
-        var traitList = [];
-        for (var i = 0; i < raceMap.get(raceRef.current.value).traits.length; i++) {
-            //console.log(traitMap.get(raceMap.get(raceRef.current.value).traits[i].toString()).name)
-            traitList[i] = traitMap.get(raceMap.get(raceRef.current.value).traits[i].toString()).name;
-        }
-
         const body = {
             name: nameRef.current.value,
             commander: commandRef.current.value,
@@ -48,28 +37,25 @@ const InputBox = ({onMod}) => {
             exp: typeRef.current.value === 'levy' ? 0 : expRef.current.value,
             equip: typeRef.current.value === 'levy' ? 0 : equipRef.current.value,
             race: raceMap.get(raceRef.current.value).name,
-            //race: ancestryassociation[ancest][raceRef.current.value],
             size: raceMap.get(raceRef.current.value).size,
-            traits: traitList
+            traits: list
         }
-        //console.log(raceMap.get(raceRef.current.value).traits.length)
-        
-        //raceMap.get(raceRef.current.value).traits.forEach(console.log("opopo"));
-        //console.log(traits[4, 7].name)
         console.log(body)
         onMod(body)
     }
 
     function changeLevy() {
         setLevy(typeRef.current.value === 'levy');
-    }
-
-    function changeAncestry() {
-        setAncest(ancestRef.current.value);
+        //onSave();
     }
 
     function changeRace() {
         setRace(raceMap.get(raceRef.current.value).name)
+        for (var i = 0; i < raceMap.get(raceRef.current.value).traits.length; i++) {
+            list[i] = traitMap.get(raceMap.get(raceRef.current.value).traits[i].toString()).name;
+        }
+        setTraitList(list)
+        //onSave();
     }
 
     return (
@@ -92,7 +78,7 @@ const InputBox = ({onMod}) => {
             ref={ancestRef}
             passedValue={defaults.ancestry} 
             passedOptions={ancestries}
-            onChange={changeAncestry}
+            //onChange={onSave}
             />
         <SelectiveDropdown
             label="Race"
@@ -123,15 +109,19 @@ const InputBox = ({onMod}) => {
             ref={equipRef}
             passedValue={defaults.equip} 
             passedOptions={equipment}
-           //onChange={onSave}
-            />
+            //onChange={onSave}
+            />  
+        {race && (
+            `${traitList}`
+        )}
+        <br />
             </>
             )}        
             Card Theme:
             <br></br>
         <input
         type ="submit"
-        value="Generate"
+        value="Update"
         onClick={onSave}
         />
         </div>

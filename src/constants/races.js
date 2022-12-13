@@ -3,7 +3,7 @@ const races = {
   Other: {
     name: "Other",
     size: 6,
-    traits: [],
+    traits: [109],
   },
   Air_Elemental: {
     name: "Air Elemental",
