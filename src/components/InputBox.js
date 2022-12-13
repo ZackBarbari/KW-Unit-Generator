@@ -28,6 +28,7 @@ const InputBox = ({onMod}) => {
     var list = [];
 
     //console.log(raceMap.get("Human").traits)
+    traitList.map((trait) => console.log(`${trait.name} ${trait.description}`))
 
 
     const onSave = () => {
@@ -126,7 +127,7 @@ const InputBox = ({onMod}) => {
         />
         </div>
         {race && (
-            `${traitList[0].name}: ${traitList[0].description}`
+            `${traitList.map((trait) => `${trait.name} ${trait.description}`)}`
         )}
         </>
     )

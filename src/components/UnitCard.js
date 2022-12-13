@@ -3,7 +3,7 @@ import defaults from '../constants/statics/defaults';
 const UnitCard = ({name, commander, ancestry, unit, exp, equip, race, size, traits}) => {
 
     //numsToTraits(traits);
-    console.log(traits)
+    //console.log(traits)
 
     return (
         <>
@@ -18,7 +18,7 @@ const UnitCard = ({name, commander, ancestry, unit, exp, equip, race, size, trai
             {exp}<br></br>
             {equip}<br></br>
             {race}<br></br>
-            {traits[0].name}<br></br>
+            {traits.map((trait) => (`${trait.name} ${trait.description} \n`))}
             
         </div>
         </>

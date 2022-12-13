@@ -83,7 +83,7 @@ const races = {
   Dinosaur: {
     name: "Dinosaur",
     size: 10,
-    traits: [],
+    traits: [0],
   },
   Dragonborn: {
     name: "Dragonborn",
