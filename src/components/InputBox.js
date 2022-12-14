@@ -1,7 +1,6 @@
 import './Input.css';
 import InputForm from "./forms/input";
 import Dropdown from "./forms/dropdown";
-//import CheckBox from "./forms/checkbox";
 import ancestries from "../constants/ancestries";
 import equipment from "../constants/statics/equipment";
 import experience from "../constants/experience";
@@ -28,11 +27,11 @@ const InputBox = ({onMod}) => {
     var list = [];
 
     //console.log(raceMap.get("Human").traits)
-    traitList.map((trait) => console.log(`${trait.name} ${trait.description}`))
+    //traitList.map((trait) => console.log(`${trait.name} ${trait.description}`))
 
 
     const onSave = () => {
-        console.log(traitList)
+        //console.log(traitList)
         const body = {
             name: nameRef.current.value,
             commander: commandRef.current.value,
@@ -44,7 +43,7 @@ const InputBox = ({onMod}) => {
             size: raceMap.get(raceRef.current.value).size,
             traits: traitList
         }
-        console.log(body)
+        //console.log(body)
         onMod(body)
     }
 
@@ -64,8 +63,8 @@ const InputBox = ({onMod}) => {
     }
 
     return (
-        <>
-        <div className='input-columns'>
+        <div className='section-box'>
+        <div className='basic-box'>
         <InputForm
             label="Name"
             ref={nameRef}
@@ -122,14 +121,19 @@ const InputBox = ({onMod}) => {
             <br></br>
         <input
         type ="submit"
-        value="Update"
+        value="Update Card"
         onClick={onSave}
         />
         </div>
+        <div className='trait-box'>
         {race && (
             traitList.map((trait) => (<div>{trait.name} {trait.description}</div>))
         )}
-        </>
+        </div>
+        {raceRef.current.value === "Other" && (
+            'INPUT YOUR OWN RACIAL VALUES'
+        )}
+        </div>
     )
 }
 

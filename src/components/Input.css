@@ -1,6 +1,54 @@
-.input-columns {
-    margin-left: 5%;
+.section-box{
+    margin-left: 2%;
     float: left;
-    background-color: rgba(207, 219, 238, 0.504);
     padding: 30px;
+    font-family: sans-serif
+}
+
+.basic-box {
+  box-shadow: 8px 8px 5px #888888;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5%;
+    padding: 70px;
   }
+
+.trait-box {
+    box-shadow: 8px 8px 5px #888888;
+    margin-top: 5%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5%;
+    padding: 30px;
+}
+
+.dropdown-styling {
+	/*background-color: whitesmoke;*/
+	border-radius: 8px;
+	box-sizing: border-box;
+	color: #595959;
+	font-size: 14px;
+	padding: 4px 17px;
+	width: 200px;
+	margin-bottom: 10px;
+}
+
+.input-styling {
+	/*background-color: whitesmoke;*/
+	border-radius: 8px;
+	box-sizing: border-box;
+	color: #595959;
+	font-size: 14px;
+	padding: 4px 17px;
+	width: 200px;
+	margin-bottom: 10px;
+}
+
+.titles {
+  float:left;
+  font-size: 14px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.input-container {
+  float:right;
+}

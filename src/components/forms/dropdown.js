@@ -1,4 +1,4 @@
-//import Input from "../../styles/Forms.module.css";
+import '../Input.css'
 import React, { useState } from "react";
 
 // React.forwardRef allows this component to provide the reference info to the parent calling it
@@ -9,12 +9,12 @@ const Dropdown = React.forwardRef(
 
     return (
       <div>
-        <label>
+        <label className='titles'>
           {label}
-          {": "}
         </label>
+        <br /><br />
         <select
-          //className={Input.input2}
+          className='dropdown-styling'
           ref={ref}
           defaultValue={value}
           onChange={onChange}
