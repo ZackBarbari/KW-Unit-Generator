@@ -12,6 +12,8 @@ import defaults from '../constants/statics/defaults';
 import SelectiveDropdown from './forms/racedropdown';
 import raceMap from '../constants/raceMap';
 import traitMap from '../constants/traitMap';
+import { wait } from '@testing-library/user-event/dist/utils';
+import { waitFor } from '@testing-library/react';
 
 const InputBox = ({onMod}) => {
     const [isLevy, setLevy] = useState(false);
@@ -32,7 +34,7 @@ const InputBox = ({onMod}) => {
 
 
     const onSave = () => {
-       
+        console.log(raceMap.get(raceRef.current.value).name, traitList)
         const body = {
             name: nameRef.current.value,
             commander: commandRef.current.value,
@@ -42,9 +44,8 @@ const InputBox = ({onMod}) => {
             equip: typeRef.current.value === 'levy' ? 0 : equipRef.current.value,
             race: raceMap.get(raceRef.current.value).name,
             size: raceMap.get(raceRef.current.value).size,
-            traits: traitList
+            traits: list
         }
-        console.log(race, traitList)
         //console.log(body)
         onMod(body)
     }
@@ -55,7 +56,7 @@ const InputBox = ({onMod}) => {
     }
 
     function changeRace() {
-        setRace(raceMap.get(raceRef.current.value).name)
+        setRace(raceMap.get(raceRef.current.value).name);
         for (var i = 0; i < raceMap.get(raceRef.current.value).traits.length; i++) {
             list[i] = traitMap.get(raceMap.get(raceRef.current.value).traits[i].toString());
         }
