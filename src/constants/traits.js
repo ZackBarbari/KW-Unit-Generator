@@ -1,6 +1,6 @@
 const traits = {
   0: {
-    name: "AAUUUGH!!!.",
+    name: "AAUUUGH!!!",
     description: "When this unit breaks, all adjacent units suffer 1 casualty."
   },
   1: {
@@ -410,7 +410,7 @@ const traits = {
       "When this unit succeeds on a Power test as part of an attack, the target unit must make a Power test (DC = 10 + this unit’s tier). On a failure, the target unit is disorganized. On a success, the target unit is disoriented."
   },
   83: {
-    name: "Load the Bones!.",
+    name: "Load the Bones!",
     description:
       "While any diminished unit is adjacent to this unit, this unit has +2 damage against opposed fortifications."
   },
@@ -515,7 +515,7 @@ const traits = {
       "When this unit succeeds on a Power test as part of an attack, the target unit must succeed on a DC 15 Power test or become weakened until the end of its next activation."
   },
   104: {
-    name: "Max Burn!.",
+    name: "Max Burn!",
     description:
       "As a reaction to activating, this unit can suffer 1 casualty. If it does so, it gets one extra attack and has advantage on Power tests this activation."
   },
@@ -544,7 +544,7 @@ const traits = {
     description: "This unit has no traits."
   },
   110: {
-    name: "Now This Is an AAAUUUGH!.",
+    name: "Now This Is an AAAUUUGH!",
     description:
       "When this unit is diminished, each time it takes casualties from an attack, the attacking unit suffers 1 casualty."
   },
@@ -564,7 +564,7 @@ const traits = {
       "This unit has advantage on tests to resist battle magic, and tests to make maneuvers against this unit have disadvantage."
   },
   114: {
-    name: "Owlbears Can’t Fly?!.",
+    name: "Owlbears Can’t Fly?!",
     description:
       "While this unit has the cavalry type, it can use a bonus action to change its type to Aerial until the beginning of its next activation. Recharge 5–6."
   },
@@ -644,7 +644,7 @@ const traits = {
       "Any opposed infantry or artillery unit adjacent to this unit has its movement reduced to 0 and cannot benefit from bonus movement."
   },
   130: {
-    name: "Rock!.",
+    name: "Rock",
     description:
       "As an action, this unit can make an Attack test against any opposed unit, with disadvantage if the target is an aerial unit. Recharge 4–6."
   },
@@ -803,7 +803,7 @@ const traits = {
     description: "This unit always succeeds on Command and Morale tests."
   },
   169: {
-    name: "You Follow!.",
+    name: "You Follow",
     description: "Whenever this unit successfully uses the Follow Up maneuver, each goblinoid unit in the rank this unit leaves can move 1 space."
   },
   170: {

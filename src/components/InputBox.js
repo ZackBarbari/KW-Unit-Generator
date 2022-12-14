@@ -6,6 +6,7 @@ import equipment from "../constants/statics/equipment";
 import experience from "../constants/experience";
 import type from "../constants/statics/type";
 import races from '../constants/races';
+import traits from '../constants/traits';
 import { useRef, useState } from "react";
 import defaults from '../constants/statics/defaults';
 import SelectiveDropdown from './forms/racedropdown';
@@ -31,7 +32,7 @@ const InputBox = ({onMod}) => {
 
 
     const onSave = () => {
-        //console.log(traitList)
+       
         const body = {
             name: nameRef.current.value,
             commander: commandRef.current.value,
@@ -43,13 +44,14 @@ const InputBox = ({onMod}) => {
             size: raceMap.get(raceRef.current.value).size,
             traits: traitList
         }
+        console.log(race, traitList)
         //console.log(body)
         onMod(body)
     }
 
     function changeLevy() {
         setLevy(typeRef.current.value === 'levy');
-        //onSave();
+        onSave();
     }
 
     function changeRace() {
@@ -58,8 +60,8 @@ const InputBox = ({onMod}) => {
             list[i] = traitMap.get(raceMap.get(raceRef.current.value).traits[i].toString());
         }
         //console.log(raceMap.get(raceRef.current.value).traits)
-        setTraitList(list)
-        //onSave();
+        setTraitList(list);
+        onSave();
     }
 
     return (
@@ -69,20 +71,20 @@ const InputBox = ({onMod}) => {
             label="Name"
             ref={nameRef}
             passedValue={defaults.name}
-            //onChange={onSave}
+            onChange={onSave}
             />
         <InputForm
             label="Commander"
             ref={commandRef}
             passedValue={defaults.commander}
-            //onChange={onSave}
+            onChange={onSave}
             />
         <SelectiveDropdown
             label="Ancestry"
             ref={ancestRef}
             passedValue={defaults.ancestry} 
             passedOptions={ancestries}
-            //onChange={onSave}
+            onChange={onSave}
             />
         <SelectiveDropdown
             label="Race"
@@ -99,35 +101,28 @@ const InputBox = ({onMod}) => {
             passedOptions={type}
             onChange={changeLevy}
             />
-        {!isLevy && (
-            <>
         <Dropdown
             label="Experience"
             ref={expRef}
             passedValue={defaults.exp} 
             passedOptions={experience}
-            //onChange={onSave}
+            invalid={isLevy}
+            onChange={onSave}
             />
         <Dropdown
             label="Equipment"
             ref={equipRef}
             passedValue={defaults.equip} 
             passedOptions={equipment}
-            //onChange={onSave}
-            />  
-            </>
-            )}        
+            invalid={isLevy}
+            onChange={onSave}
+            />      
             Card Theme:
             <br></br>
-        <input
-        type ="submit"
-        value="Update Card"
-        onClick={onSave}
-        />
         </div>
         <div className='trait-box'>
         {race && (
-            traitList.map((trait) => (<div>{trait.name} {trait.description}</div>))
+            traitList.map((trait) => (<div><br></br>{trait.name} {trait.description}</div>))
         )}
         </div>
         {raceRef.current.value === "Other" && (
