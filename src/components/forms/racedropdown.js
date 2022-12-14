@@ -9,7 +9,7 @@ const SelectiveDropdown = React.forwardRef(
 
     return (
       <div>
-        <label>
+        <label className='titles'>
           {label}
         </label>
         <br /><br />

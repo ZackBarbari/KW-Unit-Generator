@@ -26,7 +26,7 @@ const InputBox = ({onMod}) => {
     const equipRef = useRef(defaults.equip);
     const raceRef = useRef(defaults.race);
     const traitRef = useRef();
-    var list = [];
+    var list = [traitMap.get(raceMap.get("Human").traits[0].toString())];
 
     //console.log(raceMap.get("Human").traits)
     //traitList.map((trait) => console.log(`${trait.name} ${trait.description}`))
@@ -60,6 +60,13 @@ const InputBox = ({onMod}) => {
             list[i] = traitMap.get(raceMap.get(raceRef.current.value).traits[i].toString());
         }
         //console.log(raceMap.get(raceRef.current.value).traits)
+        setTraitList(list);
+        onSave();
+    }
+
+    function addTrait() {
+        console.log(list)
+        list.push(traitMap.get(traitRef.current.value.toString()))
         setTraitList(list);
         onSave();
     }
@@ -129,8 +136,12 @@ const InputBox = ({onMod}) => {
             ref={traitRef} 
             passedOptions={traits}
             invalid={traitList.length >= 4}
-            onChange={onSave}
             />  
+            <input
+        type ="submit"
+        value="Add Trait"
+        onClick={addTrait}
+        />
         </div>
         {raceRef.current.value === "Other" && (
             'INPUT YOUR OWN RACIAL VALUES'
