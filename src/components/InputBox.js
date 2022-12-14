@@ -12,8 +12,6 @@ import defaults from '../constants/statics/defaults';
 import SelectiveDropdown from './forms/racedropdown';
 import raceMap from '../constants/raceMap';
 import traitMap from '../constants/traitMap';
-import { wait } from '@testing-library/user-event/dist/utils';
-import { waitFor } from '@testing-library/react';
 
 const InputBox = ({onMod}) => {
     const [isLevy, setLevy] = useState(false);
@@ -27,6 +25,7 @@ const InputBox = ({onMod}) => {
     const expRef = useRef(defaults.exp);
     const equipRef = useRef(defaults.equip);
     const raceRef = useRef(defaults.race);
+    const traitRef = useRef();
     var list = [];
 
     //console.log(raceMap.get("Human").traits)
@@ -110,7 +109,7 @@ const InputBox = ({onMod}) => {
             invalid={isLevy}
             onChange={onSave}
             />
-        <Dropdown
+        <SelectiveDropdown
             label="Equipment"
             ref={equipRef}
             passedValue={defaults.equip} 
@@ -125,6 +124,13 @@ const InputBox = ({onMod}) => {
         {race && (
             traitList.map((trait) => (<div><br></br>{trait.name} {trait.description}</div>))
         )}
+        <SelectiveDropdown
+            label="Add Trait"
+            ref={traitRef} 
+            passedOptions={traits}
+            invalid={traitList.length >= 4}
+            onChange={onSave}
+            />  
         </div>
         {raceRef.current.value === "Other" && (
             'INPUT YOUR OWN RACIAL VALUES'
