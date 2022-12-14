@@ -34,7 +34,7 @@ const InputBox = ({onMod}) => {
 
 
     const onSave = () => {
-        console.log(raceMap.get(raceRef.current.value).name, traitList)
+        //console.log(raceMap.get(raceRef.current.value).name, traitList)
         const body = {
             name: nameRef.current.value,
             commander: commandRef.current.value,

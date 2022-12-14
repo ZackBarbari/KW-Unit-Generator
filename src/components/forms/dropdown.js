@@ -28,16 +28,17 @@ const Dropdown = React.forwardRef(
         </select>
         )}
         {invalid && (
+          <>
+          {value != ref.current.value ? setValue(ref.current.value) : null}
           <select
           className='greydropdown-styling'
           ref={ref}
-          defaultValue={value}
         >
-          {console.log(ref.current.value)}
           <option value={ref.current.value} key={ref.current.value}>
             {""}
           </option>
         </select>
+        </>
         )}
       </div>
     );
