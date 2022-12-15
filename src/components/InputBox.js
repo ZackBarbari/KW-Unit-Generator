@@ -26,7 +26,7 @@ const InputBox = ({onMod}) => {
     const equipRef = useRef(defaults.equip);
     const raceRef = useRef(defaults.race);
     const traitRef = useRef();
-    var list = [traitMap.get(raceMap.get("Human").traits[0].toString())];
+    var list = [];
 
     //console.log(raceMap.get("Human").traits)
     //traitList.map((trait) => console.log(`${trait.name} ${trait.description}`))
@@ -65,8 +65,11 @@ const InputBox = ({onMod}) => {
     }
 
     function addTrait() {
-        console.log(list)
-        list.push(traitMap.get(traitRef.current.value.toString()))
+        for (var i = 0; i < traitList.length; i++) {
+            list[i] = traitList[i]
+            console.log(traitList[i])
+        }
+        list.push(traitMap.get(traitRef.current.value.toString()));
         setTraitList(list);
         onSave();
     }
