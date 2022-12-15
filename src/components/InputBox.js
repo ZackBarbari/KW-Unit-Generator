@@ -1,22 +1,21 @@
 import './Input.css';
 import InputForm from "./forms/input";
 import Dropdown from "./forms/dropdown";
-import ancestries from "../constants/ancestries";
+import {ancestries, ancestMap} from "../constants/ancestries";
 import equipment from "../constants/statics/equipment";
 import experience from "../constants/experience";
 import type from "../constants/statics/type";
-import races from '../constants/races';
-import traits from '../constants/traits';
+import {races, raceMap} from '../constants/races';
+import {traits, traitMap} from '../constants/traits';
 import { useRef, useState } from "react";
 import defaults from '../constants/statics/defaults';
 import SelectiveDropdown from './forms/racedropdown';
-import raceMap from '../constants/raceMap';
-import traitMap from '../constants/traitMap';
 
 const InputBox = ({onMod}) => {
     const [isLevy, setLevy] = useState(false);
     const [race, setRace] = useState(defaults.race);
     const [traitList, setTraitList] = useState(defaults.traits);
+    const [ancest, setAncest] = useState(defaults.ancestry);
 
     const nameRef = useRef(defaults.name);
     const commandRef = useRef();
@@ -64,6 +63,12 @@ const InputBox = ({onMod}) => {
         onSave();
     }
 
+    function changeAncestry() {
+        setAncest(ancestRef.current.value);
+        console.log(ancestRef.current.value)
+        onSave();
+    }
+
     function addTrait() {
         for (var i = 0; i < traitList.length; i++) {
             list[i] = traitList[i]
@@ -94,14 +99,13 @@ const InputBox = ({onMod}) => {
             ref={ancestRef}
             passedValue={defaults.ancestry} 
             passedOptions={ancestries}
-            onChange={onSave}
+            onChange={changeAncestry}
             />
         <SelectiveDropdown
             label="Race"
             ref={raceRef}
             passedValue={raceMap.get(defaults.race).name} 
             passedOptions={races}
-            //passedOptions={ancestryassociation[ancest]}
             onChange={changeRace}
             />
         <Dropdown

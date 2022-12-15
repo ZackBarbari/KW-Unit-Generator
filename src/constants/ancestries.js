@@ -1,4 +1,4 @@
-import races from "./races";
+import {races} from "./races";
 
 const ancestries = {
     Construct: {
@@ -53,5 +53,11 @@ const ancestries = {
       name: "Undead",
       races: [races.Other, races.Banshee, races.Ghoul, races.Shadow, races.Skeleton, races.Wight, races.Wraith, races.Zombie]},
   };
+
+let ancestMap = new Map();
+Object.keys(ancestries).forEach(key => {
+  ancestMap.set(key, ancestries[key]);
+});
+
   
-  export default ancestries;
+export {ancestries, ancestMap};

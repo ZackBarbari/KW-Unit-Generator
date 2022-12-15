@@ -1,5 +1,5 @@
-import traitMap from "../traitMap";
-import raceMap from "../raceMap";
+import {traitMap} from "../traits";
+import {raceMap} from "../races";
 
 const defaults = {
     name: "Human Infantry", 

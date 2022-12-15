@@ -812,4 +812,9 @@ const traits = {
   },
 };
 
-export default traits;
+let traitMap = new Map();
+Object.keys(traits).forEach(key => {
+    traitMap.set(key, traits[key]);
+});
+
+export {traits, traitMap};

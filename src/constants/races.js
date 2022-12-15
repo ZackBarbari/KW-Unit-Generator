@@ -367,4 +367,10 @@ const races = {
   },
 };
 
-export default races;
+let raceMap = new Map();
+Object.keys(races).forEach(key => {
+  raceMap.set(key, races[key]);
+});
+
+
+export {races, raceMap};

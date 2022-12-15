@@ -29,7 +29,7 @@ const Dropdown = React.forwardRef(
         )}
         {invalid && (
           <>
-          {value != ref.current.value ? setValue(ref.current.value) : null}
+          {value !== ref.current.value ? setValue(ref.current.value) : null}
           <select
           className='greydropdown-styling'
           ref={ref}
