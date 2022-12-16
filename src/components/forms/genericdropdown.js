@@ -2,7 +2,7 @@ import '../Input.css'
 import React, { useState } from "react";
 
 // React.forwardRef allows this component to provide the reference info to the parent calling it
-const Dropdown = React.forwardRef(
+const GenericDropdown = React.forwardRef(
   ({ label, passedValue, passedOptions, onChange, invalid }, ref) => {
     const [options, setOptions] = useState(passedOptions);
     const [value, setValue] = useState(passedValue);
@@ -45,4 +45,4 @@ const Dropdown = React.forwardRef(
   }
 );
 
-export default Dropdown;
+export default GenericDropdown;

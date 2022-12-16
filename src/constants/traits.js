@@ -495,7 +495,7 @@ const traits = {
       "While this unit has the aerial type, it can use a bonus action to make a DC 11 Command test. On a success, this unit’s Power tests have +2 damage on this activation, but the unit’s type becomes cavalry. At the end of its next activation, the unit regains the aerial type. Recharge 4–6."
   },
   100: {
-    name: "Maneuver: “Prey on the Weak.",
+    name: "Maneuver: “Prey on the Weak”.",
     description:
       "As a reaction to an exposed opposed unit being diminished, this unit makes a DC 10 Command test. On a success, the unit makes an attack against the opposed unit."
   },

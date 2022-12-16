@@ -1,6 +1,6 @@
 import './Input.css';
 import InputForm from "./forms/input";
-import Dropdown from "./forms/dropdown";
+import GenericDropdown from "./forms/genericdropdown";
 import {ancestries, ancestMap} from "../constants/ancestries";
 import equipment from "../constants/statics/equipment";
 import experience from "../constants/experience";
@@ -9,7 +9,8 @@ import {races, raceMap} from '../constants/races';
 import {traits, traitMap} from '../constants/traits';
 import { useRef, useState } from "react";
 import defaults from '../constants/statics/defaults';
-import SelectiveDropdown from './forms/racedropdown';
+import ArrayReadingDropdown from './forms/arrayreadingdropdown';
+import SelectiveDropdown from './forms/selectivedropdown';
 
 const InputBox = ({onMod}) => {
     const [isLevy, setLevy] = useState(false);
@@ -27,9 +28,7 @@ const InputBox = ({onMod}) => {
     const traitRef = useRef();
     var list = [];
 
-    //console.log(raceMap.get("Human").traits)
     //traitList.map((trait) => console.log(`${trait.name} ${trait.description}`))
-
 
     const onSave = () => {
         //console.log(raceMap.get(raceRef.current.value).name, traitList)
@@ -41,6 +40,7 @@ const InputBox = ({onMod}) => {
             exp: typeRef.current.value === 'levy' ? 0 : expRef.current.value,
             equip: typeRef.current.value === 'levy' ? 0 : equipRef.current.value,
             race: raceMap.get(raceRef.current.value).name,
+            //raceRef.current.value !== undefined ? raceRef.current.value : defaults.race
             size: raceMap.get(raceRef.current.value).size,
             traits: list
         }
@@ -54,6 +54,7 @@ const InputBox = ({onMod}) => {
     }
 
     function changeRace() {
+        console.log(raceRef.current.value)
         setRace(raceMap.get(raceRef.current.value).name);
         for (var i = 0; i < raceMap.get(raceRef.current.value).traits.length; i++) {
             list[i] = traitMap.get(raceMap.get(raceRef.current.value).traits[i].toString());
@@ -65,7 +66,7 @@ const InputBox = ({onMod}) => {
 
     function changeAncestry() {
         setAncest(ancestRef.current.value);
-        console.log(ancestRef.current.value)
+        //console.log(ancestMap.get(ancestRef.current.value).races)
         onSave();
     }
 
@@ -94,7 +95,7 @@ const InputBox = ({onMod}) => {
             passedValue={defaults.commander}
             onChange={onSave}
             />
-        <SelectiveDropdown
+        <ArrayReadingDropdown
             label="Ancestry"
             ref={ancestRef}
             passedValue={defaults.ancestry} 
@@ -104,18 +105,19 @@ const InputBox = ({onMod}) => {
         <SelectiveDropdown
             label="Race"
             ref={raceRef}
-            passedValue={raceMap.get(defaults.race).name} 
-            passedOptions={races}
+            passedValue={raceMap.get(defaults.race).name}
+            //passedOptions={races}
+            passedOptions={ancestMap.get(ancest).races}
             onChange={changeRace}
             />
-        <Dropdown
+        <GenericDropdown
             label="Type"
             ref={typeRef}
             passedValue={defaults.unit} 
             passedOptions={type}
             onChange={changeLevy}
             />
-        <Dropdown
+        <GenericDropdown
             label="Experience"
             ref={expRef}
             passedValue={defaults.exp} 
@@ -123,7 +125,7 @@ const InputBox = ({onMod}) => {
             invalid={isLevy}
             onChange={onSave}
             />
-        <SelectiveDropdown
+        <GenericDropdown
             label="Equipment"
             ref={equipRef}
             passedValue={defaults.equip} 
@@ -138,17 +140,19 @@ const InputBox = ({onMod}) => {
         {race && (
             traitList.map((trait) => (<div><br></br>{trait.name} {trait.description}</div>))
         )}
-        <SelectiveDropdown
+        <ArrayReadingDropdown
             label="Add Trait"
             ref={traitRef} 
             passedOptions={traits}
             invalid={traitList.length >= 4}
             />  
+        {traitList.length < 4 && (
             <input
-        type ="submit"
-        value="Add Trait"
-        onClick={addTrait}
-        />
+            type ="submit"
+            value="Add Trait"
+            onClick={addTrait}
+            />
+        )}
         </div>
         {raceRef.current.value === "Other" && (
             'INPUT YOUR OWN RACIAL VALUES'
