@@ -28,8 +28,6 @@ const InputBox = ({onMod}) => {
     const traitRef = useRef();
     var list = [];
 
-    //traitList.map((trait) => console.log(`${trait.name} ${trait.description}`))
-
     const onSave = () => {
         //console.log(raceMap.get(raceRef.current.value).name, traitList)
         const body = {
@@ -54,19 +52,21 @@ const InputBox = ({onMod}) => {
     }
 
     function changeRace() {
-        //console.log(raceRef.current.value)
-        setRace(raceMap.get(raceRef.current.value).name);
+        setRace(raceMap.get(raceRef.current.value));
         for (var i = 0; i < raceMap.get(raceRef.current.value).traits.length; i++) {
             list[i] = traitMap.get(raceMap.get(raceRef.current.value).traits[i].toString());
         }
-        //console.log(raceMap.get(raceRef.current.value).traits)
         setTraitList(list);
         onSave();
     }
 
     function changeAncestry() {
         setAncest(ancestRef.current.value);
-        //console.log(ancestMap.get(ancestRef.current.value).races)
+        /*
+        setRace(raceMap.get("Other"));
+        list[0] = traitMap.get(raceMap.get("Other").traits[0].toString());
+        setTraitList(list);**/
+        changeRace();
         onSave();
     }
 
@@ -107,7 +107,6 @@ const InputBox = ({onMod}) => {
             label="Race"
             ref={raceRef}
             passedValue={raceMap.get(defaults.race).name}
-            //passedOptions={races}
             passedOptions={ancestMap.get(ancest).races}
             onChange={changeRace}
             />
@@ -147,7 +146,6 @@ const InputBox = ({onMod}) => {
             ref={traitRef} 
             passedOptions={traits}
             invalid={traitList.length >= 4}
-            //markedOptions={[2,3]}
             />  
         {traitList.length < 4 && (
             <input

@@ -303,7 +303,7 @@ const races = {
   Stone_Devil: {
     name: "Stone Devil",
     size: 8,
-    traits: [73, 120, 688],
+    traits: [73, 120, 68],
   },
   Stone_Giant: {
     name: "Stone Giant",

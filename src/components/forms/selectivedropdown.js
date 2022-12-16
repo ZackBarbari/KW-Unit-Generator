@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 // React.forwardRef allows this component to provide the reference info to the parent calling it
 const SelectiveDropdown = React.forwardRef(
-  ({ label, passedValue, passedOptions, onChange, reRender }, ref) => {
+  ({ label, passedValue, passedOptions, onChange }, ref) => {
     const [options, setOptions] = useState(passedOptions);
     const [value, setValue] = useState(passedValue);
 
