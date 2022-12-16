@@ -6,6 +6,13 @@ const ArrayReadingDropdown = React.forwardRef(
   ({ label, passedValue, passedOptions, onChange, invalid }, ref) => {
     const [options, setOptions] = useState(passedOptions);
     const [value, setValue] = useState(passedValue);
+    /*const [marked, setMarked] = useState(markedOptions);
+
+    if (marked !== undefined) {
+      for (var i = 0; i < marked.length; i++) {
+        console.log(options[marked[i]])
+      }  
+    }*/
 
     return (
       <div>

@@ -2,10 +2,14 @@ import '../Input.css'
 import React, { useState } from "react";
 
 // React.forwardRef allows this component to provide the reference info to the parent calling it
-const ArrayReadingDropdown = React.forwardRef(
-  ({ label, passedValue, passedOptions, onChange }, ref) => {
+const SelectiveDropdown = React.forwardRef(
+  ({ label, passedValue, passedOptions, onChange, reRender }, ref) => {
     const [options, setOptions] = useState(passedOptions);
     const [value, setValue] = useState(passedValue);
+
+    if (passedOptions !== options) {
+      setOptions(passedOptions)
+    }
 
     return (
       <div>
@@ -30,4 +34,4 @@ const ArrayReadingDropdown = React.forwardRef(
   }
 );
 
-export default ArrayReadingDropdown;
+export default SelectiveDropdown;

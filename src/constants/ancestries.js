@@ -9,7 +9,7 @@ const ancestries = {
       races: [races.Other, races.Dragonborn, races.Black_Dragon, races.Blue_Dragon, races.Green_Dragon, races.Red_Dragon]},
     Dwarf: {
       name: "Dwarf",
-      races: [races.Other, races.Dwarf, races.Duregar, races.Fire_Dwarf]},
+      races: [races.Other, races.Dwarf, races.Duergar, races.Fire_Dwarf]},
     Elf: {
       name: "Elf",
       races: [races.Other, races.Elf, races.Drow]},

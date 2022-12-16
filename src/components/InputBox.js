@@ -54,7 +54,7 @@ const InputBox = ({onMod}) => {
     }
 
     function changeRace() {
-        console.log(raceRef.current.value)
+        //console.log(raceRef.current.value)
         setRace(raceMap.get(raceRef.current.value).name);
         for (var i = 0; i < raceMap.get(raceRef.current.value).traits.length; i++) {
             list[i] = traitMap.get(raceMap.get(raceRef.current.value).traits[i].toString());
@@ -102,7 +102,8 @@ const InputBox = ({onMod}) => {
             passedOptions={ancestries}
             onChange={changeAncestry}
             />
-        <SelectiveDropdown
+        { ancest && (
+            <SelectiveDropdown
             label="Race"
             ref={raceRef}
             passedValue={raceMap.get(defaults.race).name}
@@ -110,6 +111,7 @@ const InputBox = ({onMod}) => {
             passedOptions={ancestMap.get(ancest).races}
             onChange={changeRace}
             />
+        )}
         <GenericDropdown
             label="Type"
             ref={typeRef}
@@ -145,6 +147,7 @@ const InputBox = ({onMod}) => {
             ref={traitRef} 
             passedOptions={traits}
             invalid={traitList.length >= 4}
+            //markedOptions={[2,3]}
             />  
         {traitList.length < 4 && (
             <input
