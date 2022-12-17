@@ -38,8 +38,9 @@ const InputBox = ({onMod}) => {
             exp: typeRef.current.value === 'levy' ? 0 : expRef.current.value,
             equip: typeRef.current.value === 'levy' ? 0 : equipRef.current.value,
             race: race.name,
-            //raceRef.current.value !== undefined ? raceRef.current.value : defaults.race
             size: race.size,
+            //race: (raceMap.get(raceRef.current.value)).name,
+            //size: (raceMap.get(raceRef.current.value)).size,
             traits: list
         }
         //console.log(body)
