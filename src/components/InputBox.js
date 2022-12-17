@@ -25,8 +25,11 @@ const InputBox = ({ onMod }) => {
 	const expRef = useRef(defaults.exp);
 	const equipRef = useRef(defaults.equip);
 	const raceRef = useRef(defaults.race);
-	const traitRef = useRef();
-	let list = useMemo(() => [], [traitList]);
+	let list = useMemo(() => [], []);
+	for (var i = 0; i < raceMap.get(raceRef.current.value ?? defaults.race).traits.length; i++) {
+		list[i] = traitMap.get(raceMap.get(raceRef.current.value ?? defaults.race).traits[i].toString());
+	}
+	const traitRef = useRef(list);
 
 	const onSave = useCallback(() => {
 		//console.log(race)
@@ -59,6 +62,7 @@ const InputBox = ({ onMod }) => {
 		console.log(raceMap.get(raceRef.current.value));
 		setRace(raceMap.get(raceRef.current.value));
 		console.log(race);
+		console.log(traitMap);
 		for (var i = 0; i < raceMap.get(raceRef.current.value).traits.length; i++) {
 			list[i] = traitMap.get(raceMap.get(raceRef.current.value).traits[i].toString());
 		}
