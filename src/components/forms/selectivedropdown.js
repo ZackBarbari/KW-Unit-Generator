@@ -9,9 +9,8 @@ const SelectiveDropdown = React.forwardRef(
 
     if (passedOptions !== options) {
       setOptions(passedOptions)
+      ref.current.value = "Other";
     }
-
-    console.log(ref)
 
     return (
       <div>
