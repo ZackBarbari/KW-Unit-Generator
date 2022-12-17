@@ -7,7 +7,7 @@ import experience from "../constants/experience";
 import type from "../constants/statics/type";
 import {races, raceMap} from '../constants/races';
 import {traits, traitMap} from '../constants/traits';
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import defaults from '../constants/statics/defaults';
 import ArrayReadingDropdown from './forms/arrayreadingdropdown';
 import SelectiveDropdown from './forms/selectivedropdown';
@@ -27,9 +27,11 @@ const InputBox = ({onMod}) => {
     const raceRef = useRef(defaults.race);
     const traitRef = useRef();
     var list = [];
+    var marker = false;
+
 
     const onSave = () => {
-        //console.log(race)
+        //console.log(marker, (raceMap.get(raceRef.current.value)).name, race.name)
         const body = {
             name: nameRef.current.value,
             commander: commandRef.current.value,
@@ -37,12 +39,15 @@ const InputBox = ({onMod}) => {
             unit: typeRef.current.value,
             exp: typeRef.current.value === 'levy' ? 0 : expRef.current.value,
             equip: typeRef.current.value === 'levy' ? 0 : equipRef.current.value,
-            race: race.name,
-            size: race.size,
+            //race: race.name,
+            //size: race.size,
+            race: marker ? (raceMap.get(raceRef.current.value)).name : defaults.changedRace,
+            size: marker ? (raceMap.get(raceRef.current.value)).size : defaults.changedRace,
             //race: (raceMap.get(raceRef.current.value)).name,
             //size: (raceMap.get(raceRef.current.value)).size,
             traits: list
         }
+        marker = false;
         //console.log(body)
         onMod(body)
     }
@@ -53,20 +58,20 @@ const InputBox = ({onMod}) => {
     }
 
     function changeRace() {
-        console.log(raceMap.get(raceRef.current.value))
-        setRace(raceMap.get(raceRef.current.value));
-        console.log(race)
+        //console.log(raceMap.get(raceRef.current.value))
+        setRace(raceMap.get(raceRef.current.value))
         for (var i = 0; i < raceMap.get(raceRef.current.value).traits.length; i++) {
             list[i] = traitMap.get(raceMap.get(raceRef.current.value).traits[i].toString());
         }
+        marker = true;
         setTraitList(list);
         onSave();
     }
 
     function changeAncestry() {
         setAncest(ancestRef.current.value);
-        setRace(raceMap.get("Other"));
-        list[0] = traitMap.get(raceMap.get("Other").traits[0].toString());
+        setRace(raceMap.get(defaults.changedRace));
+        list[0] = traitMap.get(raceMap.get(defaults.changedRace).traits[0].toString());
         setTraitList(list);
         onSave();
     }

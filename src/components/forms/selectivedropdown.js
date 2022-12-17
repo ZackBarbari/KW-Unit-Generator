@@ -1,5 +1,6 @@
 import '../Input.css'
 import React, { useState } from "react";
+import defaults from '../../constants/statics/defaults';
 
 // React.forwardRef allows this component to provide the reference info to the parent calling it
 const SelectiveDropdown = React.forwardRef(
@@ -9,7 +10,7 @@ const SelectiveDropdown = React.forwardRef(
 
     if (passedOptions !== options) {
       setOptions(passedOptions)
-      ref.current.value = "Other";
+      ref.current.value = defaults.changedRace;
     }
 
     return (
