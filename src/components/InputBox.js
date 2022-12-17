@@ -79,9 +79,14 @@ const InputBox = ({onMod}) => {
     function addTrait() {
         for (var i = 0; i < traitList.length; i++) {
             list[i] = traitList[i]
-            console.log(traitList[i])
+            //console.log(traitList[i])
         }
-        list.push(traitMap.get(traitRef.current.value.toString()));
+        if (list[0].name !== "None.") {
+            list.push(traitMap.get(traitRef.current.value.toString()));
+        } else {
+            list = [traitMap.get(traitRef.current.value.toString())]
+        }
+        
         setTraitList(list);
         onSave();
     }
