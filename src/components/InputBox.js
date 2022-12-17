@@ -14,7 +14,7 @@ import SelectiveDropdown from './forms/selectivedropdown';
 
 const InputBox = ({onMod}) => {
     const [isLevy, setLevy] = useState(false);
-    const [race, setRace] = useState(defaults.race);
+    const [race, setRace] = useState(raceMap.get(defaults.race));
     const [traitList, setTraitList] = useState(defaults.traits);
     const [ancest, setAncest] = useState(defaults.ancestry);
 
@@ -29,7 +29,7 @@ const InputBox = ({onMod}) => {
     var list = [];
 
     const onSave = () => {
-        //console.log(raceMap.get(raceRef.current.value).name, traitList)
+        //console.log(race)
         const body = {
             name: nameRef.current.value,
             commander: commandRef.current.value,
@@ -37,9 +37,9 @@ const InputBox = ({onMod}) => {
             unit: typeRef.current.value,
             exp: typeRef.current.value === 'levy' ? 0 : expRef.current.value,
             equip: typeRef.current.value === 'levy' ? 0 : equipRef.current.value,
-            race: raceMap.get(raceRef.current.value).name,
+            race: race.name,
             //raceRef.current.value !== undefined ? raceRef.current.value : defaults.race
-            size: raceMap.get(raceRef.current.value).size,
+            size: race.size,
             traits: list
         }
         //console.log(body)
@@ -62,11 +62,11 @@ const InputBox = ({onMod}) => {
 
     function changeAncestry() {
         setAncest(ancestRef.current.value);
-        /*
+        
         setRace(raceMap.get("Other"));
         list[0] = traitMap.get(raceMap.get("Other").traits[0].toString());
-        setTraitList(list);**/
-        changeRace();
+        setTraitList(list);
+        //changeRace();
         onSave();
     }
 

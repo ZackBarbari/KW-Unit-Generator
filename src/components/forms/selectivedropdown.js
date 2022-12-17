@@ -11,6 +11,8 @@ const SelectiveDropdown = React.forwardRef(
       setOptions(passedOptions)
     }
 
+    console.log(ref)
+
     return (
       <div>
         <label className='titles'>
