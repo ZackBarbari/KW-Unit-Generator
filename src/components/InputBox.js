@@ -45,7 +45,7 @@ const InputBox = ({onMod}) => {
             size: marker ? (raceMap.get(raceRef.current.value)).size : defaults.changedRace,
             //race: (raceMap.get(raceRef.current.value)).name,
             //size: (raceMap.get(raceRef.current.value)).size,
-            traits: list
+            traits: list.length === 0 ? traitList : list
         }
         marker = false;
         //console.log(body)
