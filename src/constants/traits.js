@@ -263,7 +263,7 @@ const traits = {
   53: {
     name: "Find Path.",
     description:
-      "When you deploy this unit, place two hidden path tokens, one on each side of the battlefield, wherever you choose. Any elf unit can move between spaces with hidden path tokens as if they were adjacent. Any unit that is not an elf unit takes 1 casualty if it ends its activation on a space with a hidden path token. If a rank with a hidden path token collapses, the token moves forward into the closest space that is not collapsed. The hidden path tokens remain on the battlefield until the end of the battle."
+      "When you deploy this unit, place two hidden path tokens, one on each side of the battlefield, wherever you choose. Any elf unit can move between spaces with hidden path tokens as if they were adjacent. Any unit that is not an elf unit takes 1 casualty if it ends its activation on a space with a hidden path token. If a rank with a hidden path token collapses, the token moves forward into the closest space that is not collapsed. The hidden path tokens remain on the battlefield until the end of the battle."
   },
   54: {
     name: "Fire Blast.",
