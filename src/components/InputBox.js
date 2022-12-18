@@ -86,7 +86,7 @@ const InputBox = ({onMod}) => {
             list.push(traitList[i])
             //console.log(traitList[i])
         }
-        if (list[0].name !== "None.") {
+        if (list[0]?.name !== "None.") {
             list.push(traitMap.get(traitRef.current.value.toString()));
         } else {
             list = [traitMap.get(traitRef.current.value.toString())]
