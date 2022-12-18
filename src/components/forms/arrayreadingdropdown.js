@@ -10,6 +10,7 @@ const ArrayReadingDropdown = React.forwardRef(
 
     if (excludedItems !== undefined) {
       //console.log(excludedItems)
+      excludedMap.set("None.", 0)
       Object.keys(excludedItems).forEach(key => {
         excludedMap.set(excludedItems[key].name, excludedItems[key]);
       });
