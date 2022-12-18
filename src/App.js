@@ -1,5 +1,6 @@
 import InputBox from "./components/InputBox";
 import UnitCard from "./components/UnitCard";
+//import html2canvas
 import { useState } from "react";
 
 const App = () => {
