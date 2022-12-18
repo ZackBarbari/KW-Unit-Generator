@@ -33,7 +33,7 @@ const ArrayReadingDropdown = React.forwardRef(
           {Object.entries(options).map(([k, v]) => (
             excludedMap.get(v.name) !== undefined ? null : 
             <option value={k} key={k}>
-              {v.name}
+              {v.name} {v.description}
             </option>
           ))}
         </select>
