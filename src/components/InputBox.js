@@ -38,7 +38,7 @@ const InputBox = ({onMod}) => {
             exp: typeRef.current.value === 'levy' ? 0 : expRef.current.value,
             equip: typeRef.current.value === 'levy' ? 0 : equipRef.current.value,
             race: marker ? (raceMap.get(raceRef.current.value)).name : defaults.changedRace,
-            size: marker ? (raceMap.get(raceRef.current.value)).size : defaults.changedRace,
+            size: marker ? (raceMap.get(raceRef.current.value)).size : defaults.size,
             traits: list.length === 0 ? traitList : list
         }
         marker = false;
@@ -68,9 +68,22 @@ const InputBox = ({onMod}) => {
         onSave();
     }
 
+    const onDelete = (currentTrait) => {
+        console.log("BAD", currentTrait)
+        for (var i = 0; i < traitList.length; i++) {
+            //console.log(traitList[i])
+            if (traitList[i] !== currentTrait) {
+                //console.log("SHOULD BE GOOD")
+                list.push(traitList[i])
+            }
+            setTraitList(list);
+            onSave();
+        }
+    }
+
     function addTrait() {
         for (var i = 0; i < traitList.length; i++) {
-            list[i] = traitList[i]
+            list.push(traitList[i])
             //console.log(traitList[i])
         }
         if (list[0].name !== "None.") {
@@ -142,7 +155,7 @@ const InputBox = ({onMod}) => {
         </div>
         <div className='trait-box'>
         {race && (
-            traitList.map((trait) => (<div><br></br>{trait.name} {trait.description}</div>))
+            traitList.map((trait) => (<div><br></br>{trait.name} {trait.description} <input type="button" value="Delete" onClick={() =>onDelete(trait)}></input></div>))
         )}
         <ArrayReadingDropdown
             label="Add Trait"
