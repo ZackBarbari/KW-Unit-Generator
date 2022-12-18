@@ -30,6 +30,8 @@
 	padding: 4px 8px;
 	width: 75%;
 	margin-bottom: 10px;
+	max-width: 75%;
+	overflow: hidden;
 }
 
 .greydropdown-styling {
@@ -64,4 +66,8 @@
 
 .input-container {
   float:right;
+}
+
+.multi-line-dropdown-options {
+	font-size: 10px;
 }
