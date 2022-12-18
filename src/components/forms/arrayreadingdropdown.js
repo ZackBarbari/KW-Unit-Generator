@@ -3,16 +3,19 @@ import React, { useState } from "react";
 
 // React.forwardRef allows this component to provide the reference info to the parent calling it
 const ArrayReadingDropdown = React.forwardRef(
-  ({ label, passedValue, passedOptions, onChange, invalid }, ref) => {
+  ({ label, passedValue, passedOptions, onChange, invalid, excludedItems }, ref) => {
     const [options, setOptions] = useState(passedOptions);
     const [value, setValue] = useState(passedValue);
-    /*const [marked, setMarked] = useState(markedOptions);
+    let excludedMap = new Map();;
 
-    if (marked !== undefined) {
-      for (var i = 0; i < marked.length; i++) {
-        console.log(options[marked[i]])
-      }  
-    }*/
+    if (excludedItems !== undefined) {
+      //console.log(excludedItems)
+      Object.keys(excludedItems).forEach(key => {
+        excludedMap.set(excludedItems[key].name, excludedItems[key]);
+      });
+    }
+
+    console.log(excludedMap)
 
     return (
       <div>
@@ -28,6 +31,7 @@ const ArrayReadingDropdown = React.forwardRef(
           onChange={onChange}
         >
           {Object.entries(options).map(([k, v]) => (
+            excludedMap.get(v.name) !== undefined ? null : 
             <option value={k} key={k}>
               {v.name}
             </option>

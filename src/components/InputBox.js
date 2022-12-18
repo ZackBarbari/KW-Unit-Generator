@@ -7,7 +7,7 @@ import experience from "../constants/experience";
 import type from "../constants/statics/type";
 import {races, raceMap} from '../constants/races';
 import {traits, traitMap} from '../constants/traits';
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import defaults from '../constants/statics/defaults';
 import ArrayReadingDropdown from './forms/arrayreadingdropdown';
 import SelectiveDropdown from './forms/selectivedropdown';
@@ -29,9 +29,7 @@ const InputBox = ({onMod}) => {
     var list = [];
     var marker = false;
 
-
     const onSave = () => {
-        //console.log(marker, (raceMap.get(raceRef.current.value)).name, race.name)
         const body = {
             name: nameRef.current.value,
             commander: commandRef.current.value,
@@ -39,16 +37,11 @@ const InputBox = ({onMod}) => {
             unit: typeRef.current.value,
             exp: typeRef.current.value === 'levy' ? 0 : expRef.current.value,
             equip: typeRef.current.value === 'levy' ? 0 : equipRef.current.value,
-            //race: race.name,
-            //size: race.size,
             race: marker ? (raceMap.get(raceRef.current.value)).name : defaults.changedRace,
             size: marker ? (raceMap.get(raceRef.current.value)).size : defaults.changedRace,
-            //race: (raceMap.get(raceRef.current.value)).name,
-            //size: (raceMap.get(raceRef.current.value)).size,
             traits: list.length === 0 ? traitList : list
         }
         marker = false;
-        //console.log(body)
         onMod(body)
     }
 
@@ -58,7 +51,6 @@ const InputBox = ({onMod}) => {
     }
 
     function changeRace() {
-        //console.log(raceMap.get(raceRef.current.value))
         setRace(raceMap.get(raceRef.current.value))
         for (var i = 0; i < raceMap.get(raceRef.current.value).traits.length; i++) {
             list[i] = traitMap.get(raceMap.get(raceRef.current.value).traits[i].toString());
@@ -157,6 +149,7 @@ const InputBox = ({onMod}) => {
             ref={traitRef} 
             passedOptions={traits}
             invalid={traitList.length >= 4}
+            excludedItems={traitList}
             />  
         {traitList.length < 4 && (
             <input
