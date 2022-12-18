@@ -8,7 +8,6 @@
     border: 20px solid rgb(0, 0, 0);
     padding: 10px;
   }
-
   .size-rhombus {
     float:right;
     background: rgb(255, 255, 255);
@@ -28,4 +27,8 @@
     margin-top: 200px;
     margin-right: -186px;
     transform: rotate(45deg);
+  }
+  .ancestry-icon {
+    height:70px;
+    aspect-ratio: 1/1;
   }

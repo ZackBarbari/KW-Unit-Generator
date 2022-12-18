@@ -2,9 +2,10 @@ import InputBox from "./components/InputBox";
 import UnitCard from "./components/UnitCard";
 import html2canvas from "html2canvas";
 import { useState, useRef } from "react";
+import defaults from "./constants/statics/defaults";
 
 const App = () => {
-  const [body, setBody] = useState();
+  const [body, setBody] = useState(defaults);
   const printRef = useRef();
 
   const modifyCard = (body) => {
@@ -13,7 +14,7 @@ const App = () => {
   }
 
   const downloadCard = async () => {
-    console.log(printRef.current)
+    //console.log(printRef.current)
     const element = printRef.current;
     const canvas = await html2canvas(element);
     
@@ -22,7 +23,7 @@ const App = () => {
 
     if (typeof link.download === 'string') {
       link.href = data;
-      link.download = 'image.jpg';
+      link.download = `${body.name}.jpg`;
 
       document.body.appendChild(link);
       link.click();

@@ -12,7 +12,7 @@ const UnitCard = React.forwardRef(
             <img src={ require(`../symbols/type/${unit}.png`)} alt="Type Icon" width="140" height="140"></img>
             <div className='size-rhombus'></div>
             <div className='tier-rhombus'></div>
-            <img src={ require(`../symbols/ancestry/${ancestry}.png`)} alt="Type Icon" width="70" height="70"></img><br />
+            <img src={ require(`../symbols/ancestry/${ancestry}.png`)} alt="Ancestry Icon" className='ancestry-icon'></img><br />
             {size}<br />
             {name}<br />
             Commander {commander}<br />
