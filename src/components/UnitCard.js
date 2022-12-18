@@ -1,13 +1,14 @@
 import './Card.css';
 import defaults from '../constants/statics/defaults';
-const UnitCard = ({name, commander, ancestry, unit, exp, equip, race, size, traits}) => {
+import React from 'react';
+const UnitCard = React.forwardRef(
+    ({name, commander, ancestry, unit, exp, equip, race, size, traits}, ref) => {
 
-    //numsToTraits(traits);
-    //console.log(traits)
+    //ref={ref}console.log(name, commander, ancestry, unit, exp, equip, race, size, traits, ref)
 
     return (
         <>
-        <div className='card-outline'>
+        <div className='card-outline' ref={ref}>
             <img src={ require(`../symbols/type/${unit}.png`)} alt="Type Icon" width="140" height="140"></img>
             <div className='size-rhombus'></div>
             <div className='tier-rhombus'></div>
@@ -24,6 +25,7 @@ const UnitCard = ({name, commander, ancestry, unit, exp, equip, race, size, trai
         </>
     )
 }
+);
 
 UnitCard.defaultProps = defaults
 

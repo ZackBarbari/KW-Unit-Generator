@@ -1,14 +1,36 @@
 import InputBox from "./components/InputBox";
 import UnitCard from "./components/UnitCard";
-//import html2canvas
-import { useState } from "react";
+import html2canvas from "html2canvas";
+import { useState, useRef } from "react";
 
 const App = () => {
   const [body, setBody] = useState();
+  const printRef = useRef();
 
   const modifyCard = (body) => {
     //console.log("type: " + body.unit)
     setBody(body)
+  }
+
+  const downloadCard = async () => {
+    console.log(printRef.current)
+    const element = printRef.current;
+    const canvas = await html2canvas(element);
+    
+    const data = canvas.toDataURL('image/jpg');
+    const link = document.createElement('a');
+
+    if (typeof link.download === 'string') {
+      link.href = data;
+      link.download = 'image.jpg';
+
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } else {
+      window.open(data);
+    }
+      
   }
 
   return (
@@ -17,7 +39,10 @@ const App = () => {
       <h1>Kingdoms and Warfare</h1>
       <h2>Unit Card Generator</h2>
       <InputBox onMod={modifyCard}/>
-      <UnitCard {...body} />
+      <UnitCard {...body} ref={printRef}/>
+      <button type="button" onClick={downloadCard}>
+        Download as Image
+      </button>
     </div>
     </>
   );

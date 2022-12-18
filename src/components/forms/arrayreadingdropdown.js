@@ -15,8 +15,6 @@ const ArrayReadingDropdown = React.forwardRef(
       });
     }
 
-    //console.log(excludedMap)
-
     return (
       <div>
         <label className='titles'>
