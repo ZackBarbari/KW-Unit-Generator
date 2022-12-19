@@ -1,32 +1,70 @@
 .card-outline {
-    margin-right: 5%;
+    margin: 5%;
+    display: flex;
+    flex-direction: column;
     float: right;
-    width: 50%;
-    aspect-ratio: 5 / 3;
-    border-radius: 25px;
+    width: 960px;
+    height: 560px;
+    max-width: 70%;
+    /*border-radius: 25px;
+    padding: 10px;*/
     background-color: white;
     border: 20px solid rgb(0, 0, 0);
-    padding: 10px;
   }
+  /*
   .size-rhombus {
-    float:right;
     background: rgb(255, 255, 255);
-    margin: 100px auto;
+    margin: auto;
     border: 5px solid #000;
-    width: 175px;
-    height: 175px;
-    margin-top: 5%;
-    margin-right: 5%;
+    height: 45%;
+    aspect-ratio: 1/1;
+    margin-top: 15%;
     transform: rotate(45deg);
   }
   .tier-rhombus {
-    float:right;
     border: 5px solid #000;
-    width: 175px;
-    height: 175px;
-    margin-top: 200px;
-    margin-right: -186px;
+    margin: auto;
+    margin-top: -15%;
+    height: 45%;
+    aspect-ratio: 1/1;
     transform: rotate(45deg);
+    z-index: 0;
+  }*/
+  .first-container {
+    display:flex;
+    flex-direction: row;
+    flex: 3;
+    order: 1;
+  }
+  .info-container {
+    display:flex;
+    flex-direction: column;
+    flex: 2.5;
+    order: 1;
+  }
+  .rhombus-container {
+    background-color: antiquewhite;
+    flex: 1;
+    order: 2;
+  }
+  .name-container {
+    background-color: blue;
+    flex: 1;
+    order: 1;
+  }
+  .stats-container {
+    background-color: red;
+    flex: 1;
+    order: 2;
+  }
+  .trait-container {
+    background-color: gold;
+    flex: 1;
+    order: 2;
+  }
+  .type-icon {
+    width:15%;
+    height:25%
   }
   .ancestry-icon {
     height:70px;
