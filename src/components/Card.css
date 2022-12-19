@@ -4,36 +4,32 @@
     flex-direction: column;
     float: right;
     width: 960px;
-    height: 560px;
+    aspect-ratio: 96/56;
     max-width: 70%;
     /*border-radius: 25px;
     padding: 10px;*/
     background-color: white;
     border: 20px solid rgb(0, 0, 0);
   }
-  /*
   .size-rhombus {
     background: rgb(255, 255, 255);
-    margin: auto;
     border: 5px solid #000;
-    height: 45%;
+    width: 60%;
+    margin-top: 20%;
     aspect-ratio: 1/1;
-    margin-top: 15%;
     transform: rotate(45deg);
   }
   .tier-rhombus {
     border: 5px solid #000;
-    margin: auto;
+    width: 60%;
     margin-top: -15%;
-    height: 45%;
     aspect-ratio: 1/1;
     transform: rotate(45deg);
-    z-index: 0;
-  }*/
+  }
   .first-container {
     display:flex;
     flex-direction: row;
-    flex: 3;
+    flex: 3.8;
     order: 1;
   }
   .info-container {
@@ -43,30 +39,36 @@
     order: 1;
   }
   .rhombus-container {
-    background-color: antiquewhite;
-    flex: 1;
+    border: 1px solid #000;
+    flex-direction: column;
+    display:flex;
+    align-items: center;
+    flex: 1.1;
     order: 2;
   }
   .name-container {
-    background-color: blue;
+    border: 1px solid #000;
     flex: 1;
     order: 1;
   }
   .stats-container {
-    background-color: red;
+    border: 1px solid #000;
     flex: 1;
     order: 2;
   }
   .trait-container {
-    background-color: gold;
+    border: 1px solid #000;
     flex: 1;
     order: 2;
   }
   .type-icon {
-    width:15%;
-    height:25%
+    width:23%;
+    aspect-ratio: 1/1;
+    padding: 2%;
   }
   .ancestry-icon {
-    height:70px;
+    margin-top: -68%;
+    height:16%;
     aspect-ratio: 1/1;
+    z-index: 1;
   }
