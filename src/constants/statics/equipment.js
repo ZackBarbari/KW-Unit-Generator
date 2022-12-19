@@ -27,4 +27,10 @@ const equipment = {
   },
   };
   
-  export default equipment;
+  let equipMap = new Map();
+  Object.keys(equipment).forEach(key => {
+    equipMap.set(key, equipment[key]);
+  });
+  
+  
+  export {equipment, equipMap};

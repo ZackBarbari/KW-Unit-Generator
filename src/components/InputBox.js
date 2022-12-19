@@ -1,9 +1,9 @@
 import './Input.css';
 import InputForm from "./forms/input";
 import GenericDropdown from "./forms/genericdropdown";
-import {ancestries, ancestMap} from "../constants/ancestries";
-import equipment from "../constants/statics/equipment";
-import {experience, expMap} from "../constants/statics/experience";
+import { ancestries, ancestMap } from "../constants/ancestries";
+import { equipment, equipMap } from "../constants/statics/equipment"
+import { experience, expMap } from "../constants/statics/experience";
 import type from "../constants/statics/type";
 import tiers from '../constants/statics/tiers';
 import sizes from "../constants/statics/sizes"
@@ -40,8 +40,8 @@ const InputBox = ({onMod}) => {
             commander: commandRef.current.value,
             ancestry: ancestRef.current.value,
             unit: typeRef.current.value,
-            exp: typeRef.current.value === 'Levy' ? 'Green' : expRef.current.value,
-            equip: typeRef.current.value === 'Levy' ? 'Light' : equipRef.current.value,
+            exp: typeRef.current.value === 'Levy' ? expMap.get('0') : expMap.get(expRef.current.value),
+            equip: typeRef.current.value === 'Levy' ? equipMap.get('0') : equipMap.get(equipRef.current.value),
             race: (marker ? (raceMap.get(raceRef.current.value)).name : defaults.changedRace) === 'Other' ? customRaceRef.current.value : (raceMap.get(raceRef.current.value)).name,
             size: (marker ? (raceMap.get(raceRef.current.value)).name : defaults.changedRace) === 'Other' ? customSizeRef.current.value : (raceMap.get(raceRef.current.value)).size,
             tier: typeRef.current.value === 'Levy' ? "I" :tierRef.current.value,
@@ -160,7 +160,7 @@ const InputBox = ({onMod}) => {
         <ArrayReadingDropdown
             label="Experience"
             ref={expRef}
-            passedValue={defaults.exp} 
+            passedValue={defaults.exp.name} 
             passedOptions={experience}
             invalid={isLevy}
             excludedItems={[expMap.get('0')]}
@@ -169,7 +169,7 @@ const InputBox = ({onMod}) => {
         <ArrayReadingDropdown
             label="Equipment"
             ref={equipRef}
-            passedValue={defaults.equip} 
+            passedValue={defaults.equip.name} 
             passedOptions={equipment}
             invalid={isLevy}
             onChange={onSave}

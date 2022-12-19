@@ -31,7 +31,7 @@ const experience = {
     },
   };
   
-  let expMap = new Map();
+let expMap = new Map();
 Object.keys(experience).forEach(key => {
   expMap.set(key, experience[key]);
 });

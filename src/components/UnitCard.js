@@ -5,7 +5,7 @@ import React from 'react';
 const UnitCard = React.forwardRef(
     ({name, commander, ancestry, unit, exp, equip, race, size, tier, traits}, ref) => {
     UnitCard.defaultProps = defaults
-    //console.log(name, commander, ancestry, unit, exp, equip, race, size, traits)
+    console.log(name, commander, ancestry, unit, exp, equip, race, size, traits)
 
 
     return (
@@ -16,7 +16,7 @@ const UnitCard = React.forwardRef(
                     <div className='name-container'>
                         <img src={ require(`../symbols/type/${unit}.png`)} alt="Type Icon" className='type-icon'></img>
                         <div className='info-stripe'>
-                            <div className='info-text'>{exp}, {equip}, {race}, {unit}</div>
+                            <div className='info-text'>{exp.name}, {equip.name}, {race}, {unit}</div>
                         </div>
                         <div className='type-background'/>
                         <div className='name'>{name}</div>
