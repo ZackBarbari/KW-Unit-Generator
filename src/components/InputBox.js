@@ -76,11 +76,8 @@ const InputBox = ({onMod}) => {
     }
 
     const onDelete = (currentTrait) => {
-        console.log("BAD", currentTrait)
         for (var i = 0; i < traitList.length; i++) {
-            //console.log(traitList[i])
             if (traitList[i] !== currentTrait) {
-                //console.log("SHOULD BE GOOD")
                 list.push(traitList[i])
             }
             setTraitList(list);
@@ -186,7 +183,7 @@ const InputBox = ({onMod}) => {
         </div>
         <div className='trait-box'>
         {race && (
-            traitList.map((trait) => (<div><br></br>{trait.name} {trait.description} <input type="button" value="Delete" onClick={() =>onDelete(trait)}></input></div>))
+            traitList.map((trait) => (<div><br></br>{trait.name} {trait.description} {trait.name !== 'None.' ? <input type="button" value="Delete" onClick={() =>onDelete(trait)} />: null}</div>))
         )}
         <ArrayReadingDropdown
             label="Add Trait"
