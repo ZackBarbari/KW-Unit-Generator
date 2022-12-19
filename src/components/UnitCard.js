@@ -12,9 +12,10 @@ const UnitCard = React.forwardRef(
         <div className='card-outline' ref={ref}>
             <div className='first-container'>
                 <div className='info-container'>
-                    
                     <div className='name-container'>
                         <img src={ require(`../symbols/type/${unit}.png`)} alt="Type Icon" className='type-icon'></img>
+                        <div className='name-stripe'/>
+                        <div className='type-background'/>
                     </div>
                     <div className='trait-container' />
                 </div>
@@ -26,6 +27,7 @@ const UnitCard = React.forwardRef(
                     <img src={ require(`../symbols/ancestry/${ancestry}.png`)} alt="Ancestry Icon" className='ancestry-icon'></img>
                     <div className='tier'>{tier}</div>
                     <div className='tier-title'>TIER</div>
+                    <div className='name-stripe2'/>
                 </div>
             </div>
             <div className='stats-container' />

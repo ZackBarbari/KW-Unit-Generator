@@ -16,10 +16,10 @@ const App = () => {
   const downloadCard = async () => {
     //console.log(printRef.current)
     const element = printRef.current;
-    const canvas = await html2canvas(element);
+    const canvas = await html2canvas(element,{scale:2});
     
     const data = canvas.toDataURL('image/jpg');
-    const link = document.createElement('a');
+    var link = document.createElement('a');
 
     if (typeof link.download === 'string') {
       link.href = data;
