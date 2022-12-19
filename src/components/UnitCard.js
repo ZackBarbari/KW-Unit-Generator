@@ -4,7 +4,6 @@ import React from 'react';
 const UnitCard = React.forwardRef(
     ({name, commander, ancestry, unit, exp, equip, race, size, tier, traits}, ref) => {
     UnitCard.defaultProps = defaults
-    ref={ref}
     //console.log(name, commander, ancestry, unit, exp, equip, race, size, traits)
 
     return (
@@ -35,7 +34,11 @@ const UnitCard = React.forwardRef(
                     <div className='tier-title'>TIER</div>
                 </div>
             </div>
-            <div className='stats-container' />
+            <div className='stats-container'>
+                <div className='atk-pow-block'></div>
+                <div className='atk-pow-block'></div>
+                <div className='mor-com-block'></div>
+            </div>
         </div>
         </>
     )

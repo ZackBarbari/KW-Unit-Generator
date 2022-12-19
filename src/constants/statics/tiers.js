@@ -1,9 +1,9 @@
 const tiers = {
-    "I": "I",
-    "II": "II",
-    "III": "III",
-    "IV": "IV",
-    "V": "V"
+    "I": 1,
+    "II": 2,
+    "III": 3,
+    "IV": 4,
+    "V": 5
   };
   
   export default tiers;

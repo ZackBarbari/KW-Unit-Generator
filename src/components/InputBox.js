@@ -80,9 +80,12 @@ const InputBox = ({onMod}) => {
             if (traitList[i] !== currentTrait) {
                 list.push(traitList[i])
             }
-            setTraitList(list);
-            onSave();
         }
+        if (traitList.length <= 1) {
+            list.push(traitMap.get('109'));
+        }
+        setTraitList(list);
+        onSave();
     }
 
     function addTrait() {
