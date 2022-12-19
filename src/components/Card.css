@@ -112,7 +112,7 @@
     border-radius: 50%;
     z-index: 1;
   }
-  .name-stripe {
+  .info-stripe {
     background-color: #D1D2D3;
     width: 144%;
     height: 32%;
@@ -121,11 +121,16 @@
   .name {
     font-size: 300%;
     margin-top: -25%;
-    margin-left: 25%;
+    margin-left: 28%;
   }
   .commander {
     font-size: 150%;
-    margin-left: 25%;
+    margin-left: 28%;
+  }
+  .info-text {
+    font-size: 150%;
+    margin-left: 18%;
+    padding: 1.7%;
   }
   .atk-pow-block {
     border: 1px solid #000;

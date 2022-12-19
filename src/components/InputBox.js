@@ -40,11 +40,11 @@ const InputBox = ({onMod}) => {
             commander: commandRef.current.value,
             ancestry: ancestRef.current.value,
             unit: typeRef.current.value,
-            exp: typeRef.current.value === 'levy' ? 0 : expRef.current.value,
-            equip: typeRef.current.value === 'levy' ? 0 : equipRef.current.value,
+            exp: typeRef.current.value === 'Levy' ? 0 : expRef.current.value,
+            equip: typeRef.current.value === 'Levy' ? 0 : equipRef.current.value,
             race: (marker ? (raceMap.get(raceRef.current.value)).name : defaults.changedRace) === 'Other' ? customRaceRef.current.value : (raceMap.get(raceRef.current.value)).name,
             size: (marker ? (raceMap.get(raceRef.current.value)).name : defaults.changedRace) === 'Other' ? customSizeRef.current.value : (raceMap.get(raceRef.current.value)).size,
-            tier: typeRef.current.value === 'levy' ? "I" :tierRef.current.value,
+            tier: typeRef.current.value === 'Levy' ? "I" :tierRef.current.value,
             traits: list.length === 0 ? traitList : list
     
         }
@@ -53,7 +53,7 @@ const InputBox = ({onMod}) => {
     }
 
     function changeLevy() {
-        setLevy(typeRef.current.value === 'levy');
+        setLevy(typeRef.current.value === 'Levy');
         onSave();
     }
 

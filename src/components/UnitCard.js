@@ -13,9 +13,10 @@ const UnitCard = React.forwardRef(
                 <div className='info-container'>
                     <div className='name-container'>
                         <img src={ require(`../symbols/type/${unit}.png`)} alt="Type Icon" className='type-icon'></img>
-                        <div className='name-stripe' />
+                        <div className='info-stripe'>
+                            <div className='info-text'>{exp}, {equip}, {race}, {unit}</div>
+                        </div>
                         <div className='type-background'/>
-                        {exp}, {equip}, {race}, {unit}
                         <div className='name'>{name}</div>
                         <div className='commander'>Commander {commander === '' ? '__________' : commander}</div>
                     </div>

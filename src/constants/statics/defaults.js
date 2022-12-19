@@ -5,7 +5,7 @@ const defaults = {
     name: "Human Infantry", 
     commander:"",
     ancestry: "Human",
-    unit: "infantry",
+    unit: "Infantry",
     exp: 1,
     equip: 0,
     race: "Human",
