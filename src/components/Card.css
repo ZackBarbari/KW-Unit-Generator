@@ -67,12 +67,14 @@
     padding: 2%;
   }
   .ancestry-icon {
+    position: relative;
     width:24%;
     margin-top: 9%;
     aspect-ratio: 1/1;
     z-index: 1;
   }
   .size {
+    position: relative;
     font-style: bold;
     font-size: 400%;
     margin-top: -5%;
@@ -82,9 +84,9 @@
     font-style: bold;
     font-size: 400%;
     margin-top: 5%;
-    z-index: 1;
   }
   .size-title {
+    position: relative;
     font-size: 200%;
     margin-top: -115%;
     z-index: 1;
@@ -92,5 +94,4 @@
   .tier-title {
     margin-top: -3%;
     font-size: 200%;
-    z-index: 1;
   }
