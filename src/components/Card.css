@@ -5,8 +5,8 @@
     float: right;
     width: 960px;
     aspect-ratio: 96/56;
-    max-width: 70%;
-    /*border-radius: 25px;
+    /*max-width: 70%;
+    border-radius: 25px;
     padding: 10px;*/
     background-color: white;
     border: 20px solid rgb(0, 0, 0);
@@ -67,20 +67,30 @@
     padding: 2%;
   }
   .ancestry-icon {
-    margin-top: -68%;
-    height:16%;
+    width:24%;
+    margin-top: 9%;
     aspect-ratio: 1/1;
     z-index: 1;
   }
   .size {
     font-style: bold;
-    margin-top: -60%;
     font-size: 400%;
+    margin-top: -5%;
     z-index: 1;
   }
   .tier {
     font-style: bold;
-    margin-top: -60%;
     font-size: 400%;
+    margin-top: 5%;
+    z-index: 1;
+  }
+  .size-title {
+    font-size: 200%;
+    margin-top: -115%;
+    z-index: 1;
+  }
+  .tier-title {
+    margin-top: -3%;
+    font-size: 200%;
     z-index: 1;
   }

@@ -20,9 +20,11 @@ const UnitCard = React.forwardRef(
                 <div className='rhombus-container'>
                     <div className='size-rhombus' />
                     <div className='tier-rhombus' />
-                    <img src={ require(`../symbols/ancestry/${ancestry}.png`)} alt="Ancestry Icon" className='ancestry-icon'></img>
+                    <div className='size-title'>SIZE</div>
                     <div className='size'>{size}</div>
+                    <img src={ require(`../symbols/ancestry/${ancestry}.png`)} alt="Ancestry Icon" className='ancestry-icon'></img>
                     <div className='tier'>{tier}</div>
+                    <div className='tier-title'>TIER</div>
                 </div>
             </div>
             <div className='stats-container' />
