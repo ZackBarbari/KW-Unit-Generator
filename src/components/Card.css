@@ -106,9 +106,18 @@
     border-radius: 50%;
     z-index: 1;
   }
-  .name-stripe{
+  .name-stripe {
     background-color: #D1D2D3;
     width: 144.5%;
     height: 32%;
     margin-top: -4.8%;
+  }
+  .name {
+    font-size: 300%;
+    margin-top: -25%;
+    margin-left: 25%;
+  }
+  .commander {
+    font-size: 150%;
+    margin-left: 25%;
   }

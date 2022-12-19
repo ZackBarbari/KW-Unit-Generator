@@ -6,6 +6,7 @@ const UnitCard = React.forwardRef(
         UnitCard.defaultProps = defaults
 
     //ref={ref}console.log(name, commander, ancestry, unit, exp, equip, race, size, traits, ref)
+    console.log(commander)
 
     return (
         <>
@@ -14,10 +15,16 @@ const UnitCard = React.forwardRef(
                 <div className='info-container'>
                     <div className='name-container'>
                         <img src={ require(`../symbols/type/${unit}.png`)} alt="Type Icon" className='type-icon'></img>
-                        <div className='name-stripe'/>
+                        <div className='name-stripe' />
                         <div className='type-background'/>
+                        {exp}, {equip}, {race}, {unit}
+                        <div className='name'>{name}</div>
+                        <div className='commander'>Commander {commander === '' ? '__________' : commander}</div>
                     </div>
-                    <div className='trait-container' />
+                    <div className='trait-container'>
+                        Traits
+                        {traits.map((trait) => (<div>{trait.name} {trait.description}</div>))}
+                    </div>
                 </div>
                 <div className='rhombus-container'>
                     <div className='size-rhombus' />
@@ -27,7 +34,6 @@ const UnitCard = React.forwardRef(
                     <img src={ require(`../symbols/ancestry/${ancestry}.png`)} alt="Ancestry Icon" className='ancestry-icon'></img>
                     <div className='tier'>{tier}</div>
                     <div className='tier-title'>TIER</div>
-                    <div className='name-stripe2'/>
                 </div>
             </div>
             <div className='stats-container' />
@@ -40,10 +46,6 @@ const UnitCard = React.forwardRef(
 <br />
             {name}<br />
             Commander {commander}<br />
-            {exp}<br />
-            {equip}<br />
-            <img src={ require(`../symbols/type/${unit}.png`)} alt="Type Icon" className='type-icon'></img>
-            {race}<br />
-            {traits.map((trait) => (<div>{trait.name} {trait.description}</div>))}*/
+            <img src={ require(`../symbols/type/${unit}.png`)} alt="Type Icon" className='type-icon'></img>*/
 
 export default UnitCard;

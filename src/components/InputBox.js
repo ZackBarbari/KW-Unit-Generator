@@ -130,6 +130,9 @@ const InputBox = ({onMod}) => {
             onChange={changeRace}
             />
         )}
+        { (raceRef.current.value === "Other") && (
+            "LOVELY DAY"
+        )}
         <GenericDropdown
             label="Type"
             ref={typeRef}
