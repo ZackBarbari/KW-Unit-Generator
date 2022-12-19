@@ -5,7 +5,8 @@ import {ancestries, ancestMap} from "../constants/ancestries";
 import equipment from "../constants/statics/equipment";
 import experience from "../constants/experience";
 import type from "../constants/statics/type";
-import tiers from '../constants/tiers';
+import tiers from '../constants/statics/tiers';
+import sizes from "../constants/statics/sizes"
 import {races, raceMap} from '../constants/races';
 import {traits, traitMap} from '../constants/traits';
 import { useRef, useState } from "react";
@@ -28,6 +29,8 @@ const InputBox = ({onMod}) => {
     const raceRef = useRef(defaults.race);
     const traitRef = useRef();
     const tierRef = useRef(defaults.tier);
+    const customRaceRef = useRef("");
+    const customSizeRef = useRef(defaults.size);
     var list = [];
     var marker = false;
 
@@ -39,10 +42,11 @@ const InputBox = ({onMod}) => {
             unit: typeRef.current.value,
             exp: typeRef.current.value === 'levy' ? 0 : expRef.current.value,
             equip: typeRef.current.value === 'levy' ? 0 : equipRef.current.value,
-            race: marker ? (raceMap.get(raceRef.current.value)).name : defaults.changedRace,
-            size: marker ? (raceMap.get(raceRef.current.value)).size : defaults.size,
+            race: (marker ? (raceMap.get(raceRef.current.value)).name : defaults.changedRace) === 'Other' ? customRaceRef.current.value : (raceMap.get(raceRef.current.value)).name,
+            size: (marker ? (raceMap.get(raceRef.current.value)).name : defaults.changedRace) === 'Other' ? customSizeRef.current.value : (raceMap.get(raceRef.current.value)).size,
             tier: typeRef.current.value === 'levy' ? "I" :tierRef.current.value,
             traits: list.length === 0 ? traitList : list
+    
         }
         marker = false;
         onMod(body)
@@ -131,7 +135,20 @@ const InputBox = ({onMod}) => {
             />
         )}
         { (race.name === "Other") && (
-            "LOVELY DAY"
+            <>
+            <InputForm
+            label="Custom Race Name"
+            ref={customRaceRef}
+            onChange={onSave}
+            />
+            <GenericDropdown
+            label="Custom Race Size"
+            ref={customSizeRef}
+            passedValue={defaults.size} 
+            passedOptions={sizes}
+            onChange={onSave}
+            />
+            </>
         )}
         <GenericDropdown
             label="Type"
