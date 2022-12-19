@@ -5,6 +5,7 @@ import {ancestries, ancestMap} from "../constants/ancestries";
 import equipment from "../constants/statics/equipment";
 import experience from "../constants/experience";
 import type from "../constants/statics/type";
+import tiers from '../constants/tiers';
 import {races, raceMap} from '../constants/races';
 import {traits, traitMap} from '../constants/traits';
 import { useRef, useState } from "react";
@@ -26,6 +27,7 @@ const InputBox = ({onMod}) => {
     const equipRef = useRef(defaults.equip);
     const raceRef = useRef(defaults.race);
     const traitRef = useRef();
+    const tierRef = useRef(defaults.tier);
     var list = [];
     var marker = false;
 
@@ -39,6 +41,7 @@ const InputBox = ({onMod}) => {
             equip: typeRef.current.value === 'levy' ? 0 : equipRef.current.value,
             race: marker ? (raceMap.get(raceRef.current.value)).name : defaults.changedRace,
             size: marker ? (raceMap.get(raceRef.current.value)).size : defaults.size,
+            tier: typeRef.current.value === 'levy' ? "I" :tierRef.current.value,
             traits: list.length === 0 ? traitList : list
         }
         marker = false;
@@ -150,6 +153,14 @@ const InputBox = ({onMod}) => {
             invalid={isLevy}
             onChange={onSave}
             />      
+            <GenericDropdown
+            label="Tier"
+            ref={tierRef}
+            passedValue={defaults.tier} 
+            passedOptions={tiers}
+            invalid={isLevy}
+            onChange={changeLevy}
+            />
             Card Theme:
             <br></br>
         </div>

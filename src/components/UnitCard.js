@@ -2,7 +2,7 @@ import './Card.css';
 import defaults from '../constants/statics/defaults';
 import React from 'react';
 const UnitCard = React.forwardRef(
-    ({name, commander, ancestry, unit, exp, equip, race, size, traits}, ref) => {
+    ({name, commander, ancestry, unit, exp, equip, race, size, tier, traits}, ref) => {
 
     //ref={ref}console.log(name, commander, ancestry, unit, exp, equip, race, size, traits, ref)
 
@@ -21,6 +21,8 @@ const UnitCard = React.forwardRef(
                     <div className='size-rhombus' />
                     <div className='tier-rhombus' />
                     <img src={ require(`../symbols/ancestry/${ancestry}.png`)} alt="Ancestry Icon" className='ancestry-icon'></img>
+                    <div className='size'>{size}</div>
+                    <div className='tier'>{tier}</div>
                 </div>
             </div>
             <div className='stats-container' />

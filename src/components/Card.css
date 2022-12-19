@@ -72,3 +72,15 @@
     aspect-ratio: 1/1;
     z-index: 1;
   }
+  .size {
+    font-style: bold;
+    margin-top: -60%;
+    font-size: 400%;
+    z-index: 1;
+  }
+  .tier {
+    font-style: bold;
+    margin-top: -60%;
+    font-size: 400%;
+    z-index: 1;
+  }
