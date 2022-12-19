@@ -1,10 +1,12 @@
 import './Card.css';
 import defaults from '../constants/statics/defaults';
 import React from 'react';
+
 const UnitCard = React.forwardRef(
     ({name, commander, ancestry, unit, exp, equip, race, size, tier, traits}, ref) => {
     UnitCard.defaultProps = defaults
     //console.log(name, commander, ancestry, unit, exp, equip, race, size, traits)
+
 
     return (
         <>
