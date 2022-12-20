@@ -38,9 +38,28 @@ const UnitCard = React.forwardRef(
                 </div>
             </div>
             <div className='stats-container'>
-                <div className='atk-pow-block'></div>
-                <div className='atk-pow-block'></div>
-                <div className='mor-com-block'></div>
+                <div className='atk-pow-block'>
+                    <div className='ability-score-bar'/>
+                    <div className='ability-score-title-zone'>
+                        <div className='ability-score-title'>ATK</div> 
+                        <div className='ability-score-title2'>DEF</div>
+                    </div>  
+                </div>
+                <div className='atk-pow-block'>
+                    <div className='ability-score-bar'/>
+                    <div className='ability-score-title-zone'>
+                        <div className='ability-score-title'>POW</div> 
+                        <div className='ability-score-title'>TOU</div> 
+                        <div className='ability-score-title'>DMG</div> 
+                    </div>
+                </div>
+                <div className='mor-com-block'>
+                    <div className='ability-score-bar2'/>
+                    <div className='ability-score-title-zone'>
+                        <div className='ability-score-title'>MOR</div> 
+                        <div className='ability-score-title'>COM</div> 
+                    </div>
+                </div>
             </div>
         </div>
         </>

@@ -35,7 +35,7 @@ const InputBox = ({onMod}) => {
     var marker = true;
 
     const onSave = () => {
-        //console.log(marker, (raceMap.get(raceRef.current.value)).name, defaults.changedRace)
+        //console.log(marker, (raceMap.get(raceRef.current.value)).name, defaults.changedRace, customRaceRef.current.value)
         const body = {
             name: nameRef.current.value,
             commander: commandRef.current.value,
@@ -43,8 +43,8 @@ const InputBox = ({onMod}) => {
             unit: typeRef.current.value,
             exp: typeRef.current.value === 'Levy' ? expMap.get('0') : expMap.get(expRef.current.value),
             equip: typeRef.current.value === 'Levy' ? equipMap.get('0') : equipMap.get(equipRef.current.value),
-            race: (marker ? (raceMap.get(raceRef.current.value)).name : defaults.changedRace) === 'Other' ? customRaceRef.current.value: (raceMap.get(raceRef.current.value)).name,
-            size: (marker ? (raceMap.get(raceRef.current.value)).name : defaults.changedRace) === 'Other' ? customSizeRef.current.value : (raceMap.get(raceRef.current.value)).size,
+            race: (marker ? (raceMap.get(raceRef.current.value)).name : defaults.changedRace) === 'Other' ? (customRaceRef.current !== null ? customRaceRef.current.value : "") : (raceMap.get(raceRef.current.value)).name,
+            size: (marker ? (raceMap.get(raceRef.current.value)).name : defaults.changedRace) === 'Other' ? (customSizeRef.current !== null ? customSizeRef.current.value : 6) : (raceMap.get(raceRef.current.value)).size,
             tier: typeRef.current.value === 'Levy' ? "I" : tierRef.current.value,
             traits: list.length === 0 ? traitList : list
     
