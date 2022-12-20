@@ -4,7 +4,7 @@
     flex-direction: column;
     float: right;
     width: 960px;
-    aspect-ratio: 96/56;
+    aspect-ratio: 12/7;
     /*max-width: 70%;
     border-radius: 25px;
     padding: 10px;*/
@@ -108,7 +108,7 @@
     width:23%;
     aspect-ratio: 1/1;
     background-color: rgb(255, 255, 255);
-    margin-top: -33.1%;
+    margin-top: -32.1%;
     border-radius: 50%;
     z-index: 1;
   }

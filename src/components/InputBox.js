@@ -42,9 +42,9 @@ const InputBox = ({onMod}) => {
             unit: typeRef.current.value,
             exp: typeRef.current.value === 'Levy' ? expMap.get('0') : expMap.get(expRef.current.value),
             equip: typeRef.current.value === 'Levy' ? equipMap.get('0') : equipMap.get(equipRef.current.value),
-            race: (marker ? (raceMap.get(raceRef.current.value)).name : defaults.changedRace) === 'Other' ? customRaceRef.current.value : (raceMap.get(raceRef.current.value)).name,
-            size: (marker ? (raceMap.get(raceRef.current.value)).name : defaults.changedRace) === 'Other' ? customSizeRef.current.value : (raceMap.get(raceRef.current.value)).size,
-            tier: typeRef.current.value === 'Levy' ? "I" :tierRef.current.value,
+            race: (marker ? (raceMap.get(raceRef.current.value)).name : defaults.changedRace) === 'Other' ? (customRaceRef.current !== null ? customRaceRef.current.value : null) : (raceMap.get(raceRef.current.value)).name,
+            size: (marker ? (raceMap.get(raceRef.current.value)).name : defaults.changedRace) === 'Other' ? (customSizeRef.current !== null ? customSizeRef.current.value : null) : (raceMap.get(raceRef.current.value)).size,
+            tier: typeRef.current.value === 'Levy' ? "I" : tierRef.current.value,
             traits: list.length === 0 ? traitList : list
     
         }
