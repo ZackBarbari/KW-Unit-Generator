@@ -1,6 +1,9 @@
 import './Input.css';
 import InputForm from "./forms/input";
 import GenericDropdown from "./forms/genericdropdown";
+import ArrayReadingDropdown from './forms/arrayreadingdropdown';
+import SelectiveDropdown from './forms/selectivedropdown';
+import NumberInput from './forms/number';
 import { ancestries, ancestMap } from "../constants/ancestries";
 import { equipment, equipMap } from "../constants/statics/equipment"
 import { experience, expMap } from "../constants/statics/experience";
@@ -11,8 +14,6 @@ import {races, raceMap} from '../constants/races';
 import {traits, traitMap} from '../constants/traits';
 import { useRef, useState } from "react";
 import defaults from '../constants/statics/defaults';
-import ArrayReadingDropdown from './forms/arrayreadingdropdown';
-import SelectiveDropdown from './forms/selectivedropdown';
 
 const InputBox = ({onMod}) => {
     const [isLevy, setLevy] = useState(false);
@@ -31,11 +32,34 @@ const InputBox = ({onMod}) => {
     const tierRef = useRef(defaults.tier);
     const customRaceRef = useRef("");
     const customSizeRef = useRef(defaults.size);
+    const numRef = useRef('0')
+    const atkRef = useRef('0')
+    const defRef = useRef('0')
+    const powRef = useRef('0')
+    const touRef = useRef('0')
+    const dmgRef = useRef('0')
+    const morRef = useRef('0')
+    const comRef = useRef('0')
     var list = [];
     var marker = true;
 
     const onSave = () => {
-        //console.log(marker, (raceMap.get(raceRef.current.value)).name, defaults.changedRace, customRaceRef.current.value)
+        var expMapForCurrent
+        var equipMapForCurrent
+        switch (typeRef.current.value) {
+            case ("Infantry"):
+                expMapForCurrent = expMap.get(expRef.current.value).modifierInfantry
+                equipMapForCurrent = equipMap.get(equipRef.current.value).modifierInfantry
+                break;
+            case ("Aerial" || "Cavalry"):
+                    expMapForCurrent = expMap.get(expRef.current.value).modifierOffFielders
+                    equipMapForCurrent = equipMap.get(equipRef.current.value).modifierOffFielders
+                    break;
+            default:
+                expMapForCurrent = expMap.get(expRef.current.value).modifierArtillery
+                equipMapForCurrent = equipMap.get(equipRef.current.value).modifierArtillery
+                break;
+        }
         const body = {
             name: nameRef.current.value,
             commander: commandRef.current.value,
@@ -46,8 +70,16 @@ const InputBox = ({onMod}) => {
             race: (marker ? (raceMap.get(raceRef.current.value)).name : defaults.changedRace) === 'Other' ? (customRaceRef.current !== null ? customRaceRef.current.value : "") : (raceMap.get(raceRef.current.value)).name,
             size: (marker ? (raceMap.get(raceRef.current.value)).name : defaults.changedRace) === 'Other' ? (customSizeRef.current !== null ? customSizeRef.current.value : 6) : (raceMap.get(raceRef.current.value)).size,
             tier: typeRef.current.value === 'Levy' ? "I" : tierRef.current.value,
-            traits: list.length === 0 ? traitList : list
-    
+            traits: list.length === 0 ? traitList : list,
+            abilityScores: [Number(numRef.current.value) + Number(defaults.abilityScores[0]) + Number(expMapForCurrent[0]), 
+                            Number(atkRef.current.value) + Number(defaults.abilityScores[1]) + Number(expMapForCurrent[1]), 
+                            Number(defRef.current.value) + Number(defaults.abilityScores[2]) + Number(expMapForCurrent[2]), 
+                            Number(powRef.current.value) + Number(defaults.abilityScores[3]) + Number(equipMapForCurrent[0]), 
+                            Number(touRef.current.value) + Number(defaults.abilityScores[4]) + Number(equipMapForCurrent[1]), 
+                            Number(dmgRef.current.value) + Number(defaults.abilityScores[5]) + Number(equipMapForCurrent[2]), 
+                            Number(morRef.current.value) + Number(defaults.abilityScores[6]) + Number(expMapForCurrent[3]), 
+                            Number(comRef.current.value) + Number(defaults.abilityScores[7]) + Number(expMapForCurrent[4])
+                        ]
         }
         marker = true;
         onMod(body)
@@ -106,108 +138,155 @@ const InputBox = ({onMod}) => {
 
     return (
         <div className='section-box'>
-        <div className='basic-box'>
-        <InputForm
-            label="Name"
-            ref={nameRef}
-            passedValue={defaults.name}
-            onChange={onSave}
-            />
-        <InputForm
-            label="Commander"
-            ref={commandRef}
-            passedValue={defaults.commander}
-            onChange={onSave}
-            />
-        <ArrayReadingDropdown
-            label="Ancestry"
-            ref={ancestRef}
-            passedValue={defaults.ancestry} 
-            passedOptions={ancestries}
-            onChange={changeAncestry}
-            />
-        { ancest && (
-            <SelectiveDropdown
-            label="Race"
-            ref={raceRef}
-            passedValue={raceMap.get(defaults.race).name}
-            passedOptions={ancestMap.get(ancest).races}
-            onChange={changeRace}
-            />
-        )}
-        { (race.name === "Other") && (
-            <>
+            <div className='basic-box'>
             <InputForm
-            label="Custom Race Name"
-            ref={customRaceRef}
-            onChange={onSave}
-            />
+                label="Name"
+                ref={nameRef}
+                passedValue={defaults.name}
+                onChange={onSave}
+                />
+            <InputForm
+                label="Commander"
+                ref={commandRef}
+                passedValue={defaults.commander}
+                onChange={onSave}
+                />
+            <ArrayReadingDropdown
+                label="Ancestry"
+                ref={ancestRef}
+                passedValue={defaults.ancestry} 
+                passedOptions={ancestries}
+                onChange={changeAncestry}
+                />
+            { ancest && (
+                <SelectiveDropdown
+                label="Race"
+                ref={raceRef}
+                passedValue={raceMap.get(defaults.race).name}
+                passedOptions={ancestMap.get(ancest).races}
+                onChange={changeRace}
+                />
+            )}
+            { (race.name === "Other") && (
+                <>
+                <InputForm
+                label="Custom Race Name"
+                ref={customRaceRef}
+                onChange={onSave}
+                />
+                <GenericDropdown
+                label="Custom Race Size"
+                ref={customSizeRef}
+                passedValue={defaults.size} 
+                passedOptions={sizes}
+                onChange={onSave}
+                />
+                </>
+            )}
             <GenericDropdown
-            label="Custom Race Size"
-            ref={customSizeRef}
-            passedValue={defaults.size} 
-            passedOptions={sizes}
-            onChange={onSave}
-            />
-            </>
-        )}
-        <GenericDropdown
-            label="Type"
-            ref={typeRef}
-            passedValue={defaults.unit} 
-            passedOptions={type}
-            onChange={changeLevy}
-            />
-        <ArrayReadingDropdown
-            label="Experience"
-            ref={expRef}
-            passedValue={defaults.exp.name} 
-            passedOptions={experience}
-            invalid={isLevy}
-            excludedItems={[expMap.get('0')]}
-            onChange={onSave}
-            />
-        <ArrayReadingDropdown
-            label="Equipment"
-            ref={equipRef}
-            passedValue={defaults.equip.name} 
-            passedOptions={equipment}
-            invalid={isLevy}
-            onChange={onSave}
-            />      
-            <GenericDropdown
-            label="Tier"
-            ref={tierRef}
-            passedValue={defaults.tier} 
-            passedOptions={tiers}
-            invalid={isLevy}
-            onChange={changeLevy}
-            />
-            Card Theme:
-            <br></br>
-        </div>
-        <div className='trait-box'>
-        {race && (
-            traitList.map((trait) => (<div><br></br>{trait.name} {trait.description} {trait.name !== 'None.' ? <input type="button" value="Delete" onClick={() =>onDelete(trait)} />: null}</div>))
-        )}
-        <ArrayReadingDropdown
-            label="Add Trait"
-            ref={traitRef} 
-            passedOptions={traits}
-            invalid={traitList.length >= 4}
-            excludedItems={traitList}
-            />  
-        {traitList.length < 4 && (
-            <input
-            type ="submit"
-            value="Add Trait"
-            onClick={addTrait}
-            />
-        )}
-        </div>
-        {raceRef.current.value === "Other" && (
-            'INPUT YOUR OWN RACIAL VALUES'
-        )}
+                label="Type"
+                ref={typeRef}
+                passedValue={defaults.unit} 
+                passedOptions={type}
+                onChange={changeLevy}
+                />
+            <ArrayReadingDropdown
+                label="Experience"
+                ref={expRef}
+                passedValue={defaults.exp.name} 
+                passedOptions={experience}
+                invalid={isLevy}
+                excludedItems={[expMap.get('0')]}
+                onChange={onSave}
+                />
+            <ArrayReadingDropdown
+                label="Equipment"
+                ref={equipRef}
+                passedValue={defaults.equip.name} 
+                passedOptions={equipment}
+                invalid={isLevy}
+                onChange={onSave}
+                />      
+                <GenericDropdown
+                label="Tier"
+                ref={tierRef}
+                passedValue={defaults.tier} 
+                passedOptions={tiers}
+                invalid={isLevy}
+                onChange={changeLevy}
+                />
+                Card Theme:
+                <br></br>
+            </div>
+            <div className='trait-box'>
+            {race && (
+                traitList.map((trait) => (<div><br></br>{trait.name} {trait.description} {trait.name !== 'None.' ? <input type="button" value="Delete" onClick={() =>onDelete(trait)} />: null}</div>))
+            )}
+            <ArrayReadingDropdown
+                label="Add Trait"
+                ref={traitRef} 
+                passedOptions={traits}
+                invalid={traitList.length >= 4}
+                excludedItems={traitList}
+                />  
+            {traitList.length < 4 && (
+                <input
+                type ="submit"
+                value="Add Trait"
+                onClick={addTrait}
+                />
+            )}
+            </div>
+            <div className='trait-box'>
+                <NumberInput 
+                label="Attack Number Modifier"
+                ref={numRef}
+                passedValue={'0'}
+                onChange={onSave}
+                />
+                <NumberInput 
+                label="Attack Modifier"
+                ref={atkRef}
+                passedValue={'0'}
+                onChange={onSave}
+                />
+                <NumberInput 
+                label="Power Modifier"
+                ref={powRef}
+                passedValue={'0'}
+                onChange={onSave}
+                />
+                <NumberInput 
+                label="Toughness Modifier"
+                ref={touRef}
+                passedValue={'0'}
+                onChange={onSave}
+                />
+                <NumberInput 
+                label="Defense Modifier"
+                ref={defRef}
+                passedValue={'0'}
+                onChange={onSave}
+                />
+                <NumberInput 
+                label="Damage Modifier"
+                ref={dmgRef}
+                passedValue={'0'}
+                onChange={onSave}
+                />
+                <NumberInput 
+                label="Morale Modifier"
+                ref={morRef}
+                passedValue={'0'}
+                onChange={onSave}
+                />
+                <NumberInput 
+                label="Command Modifier"
+                ref={comRef}
+                passedValue={'0'}
+                onChange={onSave}
+                />
+            </div>
         </div>
     )
 }

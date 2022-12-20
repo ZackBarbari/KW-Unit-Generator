@@ -14,7 +14,8 @@ const defaults = {
     size: 6,
     traits: [traitMap.get(raceMap.get("Human").traits.toString())],
     changedRace: "Other",
-    tier: "I"
+    tier: "I",
+    abilityScores: ['1', '0', '10', '0', '10', '1', '0', '0']
   };
   
   export default defaults;

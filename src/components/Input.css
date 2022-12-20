@@ -56,6 +56,17 @@
 	margin-bottom: 10px;
 }
 
+.number-styling {
+	/*background-color: whitesmoke;*/
+	border-radius: 8px;
+	box-sizing: border-box;
+	color: #595959;
+	font-size: 14px;
+	padding: 4px 8px;
+	width: 45%;
+	margin-bottom: 10px;
+}
+
 .titles {
   float:left;
   font-weight: bold;

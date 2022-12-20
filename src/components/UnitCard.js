@@ -3,9 +3,10 @@ import defaults from '../constants/statics/defaults';
 import React from 'react';
 
 const UnitCard = React.forwardRef(
-    ({name, commander, ancestry, unit, exp, equip, race, size, tier, traits}, ref) => {
+    ({name, commander, ancestry, unit, exp, equip, race, size, tier, traits, abilityScores}, ref) => {
     UnitCard.defaultProps = defaults
     //console.log(name, commander, ancestry, unit, exp, equip, race, size, traits)
+    console.log(abilityScores)
 
 
     return (
@@ -41,23 +42,23 @@ const UnitCard = React.forwardRef(
                 <div className='atk-pow-block'>
                     <div className='ability-score-bar'/>
                     <div className='ability-score-title-zone'>
-                        <div className='ability-score-title'>ATK</div> 
-                        <div className='ability-score-title2'>DEF</div>
+                        <div className='ability-score-title'>{abilityScores[0]}, {abilityScores[1]} ATK</div> 
+                        <div className='ability-score-title2'>{abilityScores[2]} DEF</div>
                     </div>  
                 </div>
                 <div className='atk-pow-block'>
                     <div className='ability-score-bar'/>
                     <div className='ability-score-title-zone'>
-                        <div className='ability-score-title'>POW</div> 
-                        <div className='ability-score-title'>TOU</div> 
-                        <div className='ability-score-title'>DMG</div> 
+                        <div className='ability-score-title'>{abilityScores[3]} POW</div> 
+                        <div className='ability-score-title'>{abilityScores[4]} TOU</div> 
+                        <div className='ability-score-title'>{abilityScores[5]} DMG</div> 
                     </div>
                 </div>
                 <div className='mor-com-block'>
                     <div className='ability-score-bar2'/>
                     <div className='ability-score-title-zone'>
-                        <div className='ability-score-title'>MOR</div> 
-                        <div className='ability-score-title'>COM</div> 
+                        <div className='ability-score-title'>{abilityScores[6]} MOR</div> 
+                        <div className='ability-score-title'>{abilityScores[7]} COM</div> 
                     </div>
                 </div>
             </div>
