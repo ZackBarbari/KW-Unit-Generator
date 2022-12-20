@@ -40,25 +40,35 @@ const UnitCard = React.forwardRef(
             </div>
             <div className='stats-container'>
                 <div className='atk-pow-block'>
-                    <div className='ability-score-bar'/>
+                    <div className='ability-score-bar'>
+                        <div className='ability-score-title'>{abilityScores[0] + " x "} {abilityScores[1] >=0 ? "+" + abilityScores[1] : abilityScores[1]}</div> 
+                        <div className='ability-score-title2'>{abilityScores[2]}</div>
+                    </div>
                     <div className='ability-score-title-zone'>
-                        <div className='ability-score-title'>{abilityScores[0]}, {abilityScores[1]} ATK</div> 
-                        <div className='ability-score-title2'>{abilityScores[2]} DEF</div>
+                        <div className='ability-score-title'>ATK</div> 
+                        <div className='ability-score-title2'>DEF</div>
                     </div>  
                 </div>
                 <div className='atk-pow-block'>
-                    <div className='ability-score-bar'/>
+                    <div className='ability-score-bar'>
+                        <div className='ability-score-title'>{abilityScores[3] >=0 ? "+" + abilityScores[3] : abilityScores[3]}</div> 
+                        <div className='ability-score-title'>{abilityScores[4]}</div> 
+                        <div className='ability-score-title'>{abilityScores[5]}</div> 
+                    </div>
                     <div className='ability-score-title-zone'>
-                        <div className='ability-score-title'>{abilityScores[3]} POW</div> 
-                        <div className='ability-score-title'>{abilityScores[4]} TOU</div> 
-                        <div className='ability-score-title'>{abilityScores[5]} DMG</div> 
+                        <div className='ability-score-title'>POW</div> 
+                        <div className='ability-score-title'>TOU</div> 
+                        <div className='ability-score-title'>DMG</div> 
                     </div>
                 </div>
                 <div className='mor-com-block'>
-                    <div className='ability-score-bar2'/>
+                    <div className='ability-score-bar2'>
+                        <div className='ability-score-title'>{abilityScores[6] >=0 ? "+" + abilityScores[6] : abilityScores[6]}</div> 
+                        <div className='ability-score-title'>{abilityScores[7] >=0 ? "+" + abilityScores[7] : abilityScores[7]}</div> 
+                    </div>
                     <div className='ability-score-title-zone'>
-                        <div className='ability-score-title'>{abilityScores[6]} MOR</div> 
-                        <div className='ability-score-title'>{abilityScores[7]} COM</div> 
+                        <div className='ability-score-title'>MOR</div> 
+                        <div className='ability-score-title'>COM</div> 
                     </div>
                 </div>
             </div>
