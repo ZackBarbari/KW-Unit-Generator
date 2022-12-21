@@ -14,9 +14,9 @@ const App = () => {
   }
 
   const downloadCard = async () => {
-    //console.log(printRef.current)
+
     const element = printRef.current;
-    const canvas = await html2canvas(element,{scale:2});
+    const canvas = await html2canvas(element, {scale:2});
     
     const data = canvas.toDataURL('image/jpg');
     var link = document.createElement('a');
@@ -31,7 +31,6 @@ const App = () => {
     } else {
       window.open(data);
     }
-      
   }
 
   return (

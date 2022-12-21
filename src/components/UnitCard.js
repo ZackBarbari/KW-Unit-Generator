@@ -6,7 +6,7 @@ const UnitCard = React.forwardRef(
     ({name, commander, ancestry, unit, exp, equip, race, size, tier, traits, abilityScores}, ref) => {
     UnitCard.defaultProps = defaults
     //console.log(name, commander, ancestry, unit, exp, equip, race, size, traits)
-    console.log(abilityScores)
+    //console.log(abilityScores)
 
 
     return (
@@ -25,7 +25,7 @@ const UnitCard = React.forwardRef(
                     </div>
                     <div className='trait-container'>
                         Traits
-                        {traits.map((trait) => (<div>{trait.name} {trait.description}</div>))}
+                        {traits.map((trait) => (<div><div className='trait-name'>• {trait.name}</div> <div className='trait-description'>{trait.description}</div></div>))}
                     </div>
                 </div>
                 <div className='rhombus-container'>
@@ -41,7 +41,8 @@ const UnitCard = React.forwardRef(
             <div className='stats-container'>
                 <div className='atk-pow-block'>
                     <div className='ability-score-bar'>
-                        <div className='ability-score-title'>{abilityScores[0] + " x "} {abilityScores[1] >=0 ? "+" + abilityScores[1] : abilityScores[1]}</div> 
+                        <div className='ability-score-title2'>{abilityScores[0] + " x "}</div>
+                        <div className='ability-score-title2'>{abilityScores[1] >=0 ? "+" + abilityScores[1] : abilityScores[1]}</div> 
                         <div className='ability-score-title2'>{abilityScores[2]}</div>
                     </div>
                     <div className='ability-score-title-zone'>
@@ -74,6 +75,7 @@ const UnitCard = React.forwardRef(
             </div>
         </div>
         </>
+        
     )
 }
 );
