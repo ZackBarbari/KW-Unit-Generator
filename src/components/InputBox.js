@@ -46,8 +46,7 @@ const InputBox = ({onMod}) => {
     const onSave = () => {
         var expMapForCurrent
         var equipMapForCurrent
-
-        console.log(marker ? (raceMap.get(raceRef.current.value)).modifiers : raceMap.get(defaults.changedRace).modifiers)
+        var raceMapForCurrent = marker ? (raceMap.get(raceRef.current.value)).modifiers : raceMap.get(defaults.changedRace).modifiers
 
         switch (typeRef.current.value) {
             case ("Infantry"):
@@ -85,13 +84,13 @@ const InputBox = ({onMod}) => {
             traits: list.length === 0 ? traitList : list,
             abilityScores: [
                 Number(numRef.current.value) + Number(expMapForCurrent[0]), 
-                Number(atkRef.current.value) + Number(expMapForCurrent[1]), 
-                Number(defRef.current.value) + Number(expMapForCurrent[2]), 
-                Number(powRef.current.value) + Number(equipMapForCurrent[0]), 
-                Number(touRef.current.value) + Number(equipMapForCurrent[1]), 
+                Number(atkRef.current.value) + Number(expMapForCurrent[1] + Number(raceMapForCurrent[0])), 
+                Number(defRef.current.value) + Number(expMapForCurrent[2] + Number(raceMapForCurrent[1])), 
+                Number(powRef.current.value) + Number(equipMapForCurrent[0] + Number(raceMapForCurrent[2])), 
+                Number(touRef.current.value) + Number(equipMapForCurrent[1] + Number(raceMapForCurrent[3])), 
                 Number(dmgRef.current.value) + Number(equipMapForCurrent[2]), 
-                Number(morRef.current.value) + Number(expMapForCurrent[3]), 
-                Number(comRef.current.value) + Number(expMapForCurrent[4])
+                Number(morRef.current.value) + Number(expMapForCurrent[3] + Number(raceMapForCurrent[4])), 
+                Number(comRef.current.value) + Number(expMapForCurrent[4] + Number(raceMapForCurrent[5]))
                 ]
         }
         marker = true;
