@@ -47,6 +47,8 @@ const InputBox = ({onMod}) => {
         var expMapForCurrent
         var equipMapForCurrent
 
+        console.log(marker ? (raceMap.get(raceRef.current.value)).modifiers : raceMap.get(defaults.changedRace).modifiers)
+
         switch (typeRef.current.value) {
             case ("Infantry"):
                 expMapForCurrent = expMap.get(expRef.current.value).modifierInfantry
