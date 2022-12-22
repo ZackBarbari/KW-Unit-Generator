@@ -46,15 +46,21 @@ const InputBox = ({onMod}) => {
     const onSave = () => {
         var expMapForCurrent
         var equipMapForCurrent
+        console.log(typeRef.current.value)
         switch (typeRef.current.value) {
             case ("Infantry"):
                 expMapForCurrent = expMap.get(expRef.current.value).modifierInfantry
                 equipMapForCurrent = equipMap.get(equipRef.current.value).modifierInfantry
                 break;
-            case ("Aerial" || "Cavalry"):
+            case ("Aerial") :
+            case ("Cavalry"):
                     expMapForCurrent = expMap.get(expRef.current.value).modifierOffFielders
                     equipMapForCurrent = equipMap.get(equipRef.current.value).modifierOffFielders
                     break;
+            case ("Levy"):
+                expMapForCurrent = expMap.get('0').modifierInfantry
+                equipMapForCurrent = equipMap.get('0').modifierInfantry
+                break;
             default:
                 expMapForCurrent = expMap.get(expRef.current.value).modifierArtillery
                 equipMapForCurrent = equipMap.get(equipRef.current.value).modifierArtillery

@@ -3,7 +3,7 @@
 const experience = {
     0: {
       name: "Levy",
-      modifierInfantry: [0, -1, -2, -2, 1],
+      modifierInfantry: [0, -1, -2, -2, -1],
     },
     1: {
       name: "Regular",

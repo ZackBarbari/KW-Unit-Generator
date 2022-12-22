@@ -1,6 +1,9 @@
+//Modifiers
+
 const type = {
     Levy: {
       name: "Levy",
+
     },
     Infantry: {
       name: "Infantry"
