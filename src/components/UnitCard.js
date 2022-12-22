@@ -41,8 +41,9 @@ const UnitCard = React.forwardRef(
             <div className='stats-container'>
                 <div className='atk-pow-block'>
                     <div className='ability-score-bar'>
+                        
                         <div className='ability-score-title2'>{abilityScores[0] + " x "}</div>
-                        <div className='ability-score-title2'>{abilityScores[1] >=0 ? "+" + abilityScores[1] : abilityScores[1]}</div> 
+                        <div className='ability-score-title2'><div className='icon2'/>{abilityScores[1] >=0 ? "+" + abilityScores[1] : abilityScores[1]}</div> 
                         <div className='ability-score-title2'>{abilityScores[2]}</div>
                     </div>
                     <div className='ability-score-title-zone'>

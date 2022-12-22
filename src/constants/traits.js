@@ -500,7 +500,7 @@ const traits = {
       "As a reaction to an exposed opposed unit being diminished, this unit makes a DC 10 Command test. On a success, the unit makes an attack against the opposed unit."
   },
   101: {
-    name: "Maneuver: “Spit Upon Their Horns.",
+    name: "Maneuver: “Spit Upon Their Horns”.",
     description:
       "As a reaction to succeeding on a Power test made as part of an attack, this unit makes a DC 13 Command test. On a success, the target unit suffers 1 additional casualty."
   },

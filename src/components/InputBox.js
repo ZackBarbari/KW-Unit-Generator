@@ -183,7 +183,7 @@ const InputBox = ({onMod}) => {
                 />
                 </>
             )}
-            <GenericDropdown
+            <ArrayReadingDropdown
                 label="Type"
                 ref={typeRef}
                 passedValue={defaults.unit} 
