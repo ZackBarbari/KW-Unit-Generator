@@ -46,26 +46,30 @@ const InputBox = ({onMod}) => {
     const onSave = () => {
         var expMapForCurrent
         var equipMapForCurrent
-        console.log(typeRef.current.value)
+
         switch (typeRef.current.value) {
             case ("Infantry"):
                 expMapForCurrent = expMap.get(expRef.current.value).modifierInfantry
                 equipMapForCurrent = equipMap.get(equipRef.current.value).modifierInfantry
                 break;
-            case ("Aerial") :
             case ("Cavalry"):
-                    expMapForCurrent = expMap.get(expRef.current.value).modifierOffFielders
-                    equipMapForCurrent = equipMap.get(equipRef.current.value).modifierOffFielders
-                    break;
+                expMapForCurrent = expMap.get(expRef.current.value).modifierCavalry
+                equipMapForCurrent = equipMap.get(equipRef.current.value).modifierCavalry
+                break;
             case ("Levy"):
                 expMapForCurrent = expMap.get('0').modifierInfantry
                 equipMapForCurrent = equipMap.get('0').modifierInfantry
+                break;
+            case ("Aerial"): 
+                expMapForCurrent = expMap.get(expRef.current.value).modifierAerial
+                equipMapForCurrent = equipMap.get(equipRef.current.value).modifierAerial
                 break;
             default:
                 expMapForCurrent = expMap.get(expRef.current.value).modifierArtillery
                 equipMapForCurrent = equipMap.get(equipRef.current.value).modifierArtillery
                 break;
         }
+
         const body = {
             name: nameRef.current.value,
             commander: commandRef.current.value,
@@ -77,15 +81,16 @@ const InputBox = ({onMod}) => {
             size: (marker ? (raceMap.get(raceRef.current.value)).name : defaults.changedRace) === 'Other' ? (customSizeRef.current !== null ? customSizeRef.current.value : 6) : (raceMap.get(raceRef.current.value)).size,
             tier: typeRef.current.value === 'Levy' ? "I" : tierRef.current.value,
             traits: list.length === 0 ? traitList : list,
-            abilityScores: [Number(numRef.current.value) + Number(defaults.abilityScores[0]) + Number(expMapForCurrent[0]), 
-                            Number(atkRef.current.value) + Number(defaults.abilityScores[1]) + Number(expMapForCurrent[1]), 
-                            Number(defRef.current.value) + Number(defaults.abilityScores[2]) + Number(expMapForCurrent[2]), 
-                            Number(powRef.current.value) + Number(defaults.abilityScores[3]) + Number(equipMapForCurrent[0]), 
-                            Number(touRef.current.value) + Number(defaults.abilityScores[4]) + Number(equipMapForCurrent[1]), 
-                            Number(dmgRef.current.value) + Number(defaults.abilityScores[5]) + Number(equipMapForCurrent[2]), 
-                            Number(morRef.current.value) + Number(defaults.abilityScores[6]) + Number(expMapForCurrent[3]), 
-                            Number(comRef.current.value) + Number(defaults.abilityScores[7]) + Number(expMapForCurrent[4])
-                        ]
+            abilityScores: [
+                Number(numRef.current.value) + Number(expMapForCurrent[0]), 
+                Number(atkRef.current.value) + Number(expMapForCurrent[1]), 
+                Number(defRef.current.value) + Number(expMapForCurrent[2]), 
+                Number(powRef.current.value) + Number(equipMapForCurrent[0]), 
+                Number(touRef.current.value) + Number(equipMapForCurrent[1]), 
+                Number(dmgRef.current.value) + Number(equipMapForCurrent[2]), 
+                Number(morRef.current.value) + Number(expMapForCurrent[3]), 
+                Number(comRef.current.value) + Number(expMapForCurrent[4])
+                ]
         }
         marker = true;
         onMod(body)
@@ -189,7 +194,7 @@ const InputBox = ({onMod}) => {
                 />
                 </>
             )}
-            <ArrayReadingDropdown
+            <GenericDropdown
                 label="Type"
                 ref={typeRef}
                 passedValue={defaults.unit} 
@@ -213,7 +218,7 @@ const InputBox = ({onMod}) => {
                 invalid={isLevy}
                 onChange={onSave}
                 />      
-                <GenericDropdown
+            <GenericDropdown
                 label="Tier"
                 ref={tierRef}
                 passedValue={defaults.tier} 

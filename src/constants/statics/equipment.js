@@ -1,29 +1,33 @@
-//Modifiers applied with schema +[POW, TOU, DAM]
+//Modifiers applied with schema +[POW, TOU, DAM], based off of a modified chart that I found to be more accurate at https://www.reddit.com/r/mattcolville/comments/orx0hd/comment/h6tgvey/?utm_source=share&utm_medium=web2x&context=3
 
 const equipment = {
   0: {
     name: "Light",
-    modifierInfantry: [0, 0, 0],
-    modifierOffFielders: [0, 0, 0],
-    modifierArtillery: [0, 0, 0],
+    modifierInfantry: [2, 12, 1],
+    modifierCavalry: [3, 10, 2],
+    modifierAerial: [2, 8, 1],
+    modifierArtillery: [2, 8, 1],
   },
   1: {
     name: "Medium",
-    modifierInfantry: [2, 2, 0],
-    modifierOffFielders: [1, 1, 0],
-    modifierArtillery: [1, 1, 0],
+    modifierInfantry: [4, 14, 1],
+    modifierCavalry: [4, 11, 2],
+    modifierAerial: [3, 9, 1],
+    modifierArtillery: [3, 9, 1],
   },
   2: {
     name: "Heavy",
-    modifierInfantry: [4, 4, 0],
-    modifierOffFielders: [2, 2, 0],
-    modifierArtillery: [2, 2, 0],
+    modifierInfantry: [6, 16, 1],
+    modifierCavalry: [5, 12, 2],
+    modifierAerial: [4, 10, 1],
+    modifierArtillery: [4, 10, 1],
   },
   3: {
     name: "Super-heavy",
-    modifierInfantry: [6, 6, 1],
-    modifierOffFielders: [3, 3, 1],
-    modifierArtillery: [3, 3, 0],
+    modifierInfantry: [8, 18, 2],
+    modifierCavalry: [6, 13, 3],
+    modifierAerial: [5, 11, 2],
+    modifierArtillery: [5, 11, 1],
   },
   };
   

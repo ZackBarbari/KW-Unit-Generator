@@ -17,7 +17,7 @@ const UnitCard = React.forwardRef(
                     <div className='name-container'>
                         <img src={ require(`../symbols/type/${unit}.png`)} alt="Type Icon" className='type-icon'></img>
                         <div className='info-stripe'>
-                            <div className='info-text'>{exp.name}, {equip.name}, {race}, {unit}</div>
+                            <div className='info-text'>{exp.name}, {equip.name}, {race}, {unit === 'Levy' ? 'Infantry' : unit === 'Archer' || unit === 'Siege' ? 'Artillery' : unit}</div>
                         </div>
                         <div className='type-background'/>
                         <div className='name'>{name}</div>

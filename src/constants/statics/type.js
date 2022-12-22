@@ -1,25 +1,10 @@
-//Modifiers
-
 const type = {
-    Levy: {
-      name: "Levy",
-
-    },
-    Infantry: {
-      name: "Infantry"
-    },
-    Archer: {
-      name: "Artillery: Archers"
-    },
-    Siege: {
-      name: "Artillery: Siege"
-    },
-    Cavalry: {
-      name: "Cavalry"
-    },
-    Aerial: {
-      name: "Aerial"
-    },
+    Levy: "Levy",
+    Infantry: "Infantry",
+    Archer: "Artillery: Archers",
+    Siege: "Artillery: Siege",
+    Cavalry: "Cavalry",
+    Aerial: "Aerial",
   };
   
   export default type;
