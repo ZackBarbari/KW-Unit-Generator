@@ -2,7 +2,7 @@ import '../Input.css'
 import React, { useState } from "react";
 
 // React.forwardRef allows this component to provide the reference info to the parent calling it
-const InputForm = React.forwardRef(({ label, passedValue }, ref) => {
+const InputForm = React.forwardRef(({ label, passedValue, onChange }, ref) => {
   return (
     <div>
       <label className='titles'>
@@ -13,6 +13,7 @@ const InputForm = React.forwardRef(({ label, passedValue }, ref) => {
         className='input-styling'
         ref={ref}
         defaultValue={passedValue}
+        onChange = {onChange}
       ></input>
     </div>
   );

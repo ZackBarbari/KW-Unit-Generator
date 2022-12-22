@@ -10,7 +10,7 @@ import { experience, expMap } from "../constants/statics/experience";
 import type from "../constants/statics/type";
 import tiers from '../constants/statics/tiers';
 import sizes from "../constants/statics/sizes"
-import {races, raceMap} from '../constants/races';
+import { races, raceMap } from '../constants/races';
 import {traits, traitMap} from '../constants/traits';
 import { useRef, useState } from "react";
 import defaults from '../constants/statics/defaults';
@@ -43,7 +43,9 @@ const InputBox = ({onMod}) => {
     var list = [];
     var marker = true;
 
-    const onSave = () => {
+    //console.log(raceMap.get(raceRef.current.value == null ? defaults.race : raceRef.current.value).modifiers,raceMap.get(raceRef.current.value == null ? defaults.race : raceRef.current.value).modifiers == ['0', '0', '0', '0', '0', '0'])
+
+    const onSave = (event) => {
         var expMapForCurrent
         var equipMapForCurrent
         var raceMapForCurrent = marker ? (raceMap.get(raceRef.current.value)).modifiers : raceMap.get(defaults.changedRace).modifiers
@@ -82,7 +84,8 @@ const InputBox = ({onMod}) => {
             size: (marker ? (raceMap.get(raceRef.current.value)).name : defaults.changedRace) === 'Other' ? (customSizeRef.current !== null ? customSizeRef.current.value : 6) : (raceMap.get(raceRef.current.value)).size,
             tier: typeRef.current.value === 'Levy' ? "I" : tierRef.current.value,
             traits: list.length === 0 ? traitList : list,
-            abilityScores: [
+            abilityScores: 
+                [
                 Number(numRef.current.value) + Number(expMapForCurrent[0]), 
                 Number(atkRef.current.value) + Number(expMapForCurrent[1] + Number(raceMapForCurrent[0])), 
                 Number(defRef.current.value) + Number(expMapForCurrent[2] + Number(raceMapForCurrent[1])), 
@@ -250,6 +253,9 @@ const InputBox = ({onMod}) => {
             )}
             </div>
             <div className='trait-box'>
+                {raceMap.get(raceRef.current.value == null ? defaults.race : raceRef.current.value).modifiers == ['0', '0', '0', '0', '0', '0'] && (
+                    <>This race has no ancestral modifiers. It is strongly recommended to manually tweak the modifiers to your satisfaction.</>
+                )}
                 <NumberInput 
                 label="Attack Number Modifier"
                 ref={numRef}

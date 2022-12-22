@@ -8,7 +8,7 @@ const experience = {
     1: {
       name: "Regular",
       modifierInfantry: [1, 3, 12, 0, 1],
-      modifierCavalry: [1, 3, 13, 1, 2],
+      modifierCavalry: [1, 3, 12, 0, 0],
       modifierAerial: [1, 5, 10, 0, 0],
       modifierArtillery: [1, 3, 10, 0, 0],
     },

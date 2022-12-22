@@ -180,7 +180,7 @@ const races = {
     name: "Frog of War",
     size: 8,
     traits: [85, 72, 63],
-    modifiers: [0, 7, 0, 8, 3, 1]
+    modifiers: [10, 7, 10, 8, 3, 1]
   },
   Frost_Giant: {
     name: "Frost Giant",
