@@ -148,14 +148,14 @@
     margin-bottom: -2px;
     display:flex;
     flex-direction: column;
-    flex: 1;
+    flex: 3;
     order: 1
   }
   .mor-com-block {
     margin-bottom: -2px;
     display:flex;
     flex-direction: column;
-    flex: 1;
+    flex: 2;
     order: 2
   }
   .ability-score-bar {
@@ -188,7 +188,7 @@
     order: 2;
   }
   .ability-score-title {
-    margin-top: 5%;
+    margin-top: 10px;
     font-size: 150%;
     text-align: center;
     color: var(--text-color);
@@ -196,7 +196,7 @@
   }
 
   .ability-score-title2 {
-    margin-top: 5%;
+    margin-top: 10px;
     font-size: 150%;
     text-align: center;
     color: var(--text-color);

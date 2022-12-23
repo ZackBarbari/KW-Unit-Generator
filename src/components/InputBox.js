@@ -43,8 +43,6 @@ const InputBox = ({onMod}) => {
     var list = [];
     var marker = true;
 
-    //console.log(raceMap.get(raceRef.current.value == null ? defaults.race : raceRef.current.value).modifiers,raceMap.get(raceRef.current.value == null ? defaults.race : raceRef.current.value).modifiers == ['0', '0', '0', '0', '0', '0'])
-
     const onSave = (event) => {
         var expMapForCurrent
         var equipMapForCurrent
@@ -139,7 +137,6 @@ const InputBox = ({onMod}) => {
     function addTrait() {
         for (var i = 0; i < traitList.length; i++) {
             list.push(traitList[i])
-            //console.log(traitList[i])
         }
         if (list[0]?.name !== "None.") {
             list.push(traitMap.get(traitRef.current.value.toString()));
@@ -253,9 +250,6 @@ const InputBox = ({onMod}) => {
             )}
             </div>
             <div className='trait-box'>
-                {raceMap.get(raceRef.current.value == null ? defaults.race : raceRef.current.value).modifiers == ['0', '0', '0', '0', '0', '0'] && (
-                    <>This race has no ancestral modifiers. It is strongly recommended to manually tweak the modifiers to your satisfaction.</>
-                )}
                 <NumberInput 
                 label="Attack Number Modifier"
                 ref={numRef}

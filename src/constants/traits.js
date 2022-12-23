@@ -239,7 +239,7 @@ const traits = {
   48: {
     name: "Fast Siege Weapon (Heavy).",
     description:
-      "This unit can attack a fortification. It automatically hits (no Attack test or Power test needed) and ."
+      "This unit can attack a fortification. It automatically hits (no Attack test or Power test needed) and deals 5 damage."
   },
   49: {
     name: "Fast Siege Weapon.",
