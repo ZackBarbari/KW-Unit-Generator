@@ -24,7 +24,6 @@ const UnitCard = React.forwardRef(
                         <div className='commander'>Commander {commander === '' ? '__________' : commander}</div>
                     </div>
                     <div className='trait-container'>
-                        Traits
                         {traits.map((trait) => (<div><div className='trait-name'>• {trait.name}</div> <div className='trait-description'>{trait.description}</div></div>))}
                     </div>
                 </div>
@@ -41,21 +40,26 @@ const UnitCard = React.forwardRef(
             <div className='stats-container'>
                 <div className='atk-pow-block'>
                     <div className='ability-score-bar'>
-                        
-                        <div className='ability-score-title2'>{abilityScores[0] + " x "}</div>
-                        <div className='ability-score-title2'><div className='icon2'/>{abilityScores[1] >=0 ? "+" + abilityScores[1] : abilityScores[1]}</div> 
-                        <div className='ability-score-title2'>{abilityScores[2]}</div>
+                        <img src={ require(`../symbols/bar-icons/U1.png`)} className='bar-icons'/>
+                        <div className='overlay-as-box'>
+                            <div className='ability-score-title2'>{abilityScores[0] + " x "}</div>
+                            <div className='ability-score-title2'><div className='icon2'/>{abilityScores[1] >=0 ? "+" + abilityScores[1] : abilityScores[1]}</div> 
+                            <div className='ability-score-title2'>{abilityScores[2]}</div>
+                        </div>
                     </div>
                     <div className='ability-score-title-zone'>
                         <div className='ability-score-title'>ATK</div> 
-                        <div className='ability-score-title2'>DEF</div>
+                        <div className='ability-score-title'>DEF</div>
                     </div>  
                 </div>
                 <div className='atk-pow-block'>
                     <div className='ability-score-bar'>
-                        <div className='ability-score-title'>{abilityScores[3] >=0 ? "+" + abilityScores[3] : abilityScores[3]}</div> 
-                        <div className='ability-score-title'>{abilityScores[4]}</div> 
-                        <div className='ability-score-title'>{abilityScores[5]}</div> 
+                        <img src={ require(`../symbols/bar-icons/U2.png`)} className='bar-icons'/>
+                        <div className='overlay-as-box'>
+                            <div className='ability-score-title2'>{abilityScores[3] >=0 ? "+" + abilityScores[3] : abilityScores[3]}</div> 
+                            <div className='ability-score-title2'>{abilityScores[4]}</div> 
+                            <div className='ability-score-title2'>{abilityScores[5]}</div> 
+                        </div>
                     </div>
                     <div className='ability-score-title-zone'>
                         <div className='ability-score-title'>POW</div> 
@@ -65,8 +69,11 @@ const UnitCard = React.forwardRef(
                 </div>
                 <div className='mor-com-block'>
                     <div className='ability-score-bar2'>
-                        <div className='ability-score-title'>{abilityScores[6] >=0 ? "+" + abilityScores[6] : abilityScores[6]}</div> 
-                        <div className='ability-score-title'>{abilityScores[7] >=0 ? "+" + abilityScores[7] : abilityScores[7]}</div> 
+                        <img src={ require(`../symbols/bar-icons/U3.png`)} className='bar-icons'/>
+                        <div className='overlay-as-box'>
+                            <div className='ability-score-title2'>{abilityScores[6] >=0 ? "+" + abilityScores[6] : abilityScores[6]}</div> 
+                            <div className='ability-score-title2'>{abilityScores[7] >=0 ? "+" + abilityScores[7] : abilityScores[7]}</div> 
+                        </div>
                     </div>
                     <div className='ability-score-title-zone'>
                         <div className='ability-score-title'>MOR</div> 

@@ -227,7 +227,6 @@ const InputBox = ({onMod}) => {
                 invalid={isLevy}
                 onChange={changeLevy}
                 />
-                Card Theme:
                 <br></br>
             </div>
             <div className='trait-box'>

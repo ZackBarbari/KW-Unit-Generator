@@ -9,12 +9,12 @@
 }
 
 .card-outline {
-    margin: 5%;
+    margin-right: 3%;
     display: flex;
     flex-direction: column;
     float: right;
     width: 940px;
-    aspect-ratio: 94/66;
+    aspect-ratio: 47/33;
     /*border-radius: 25px;
     max-width: 70%;
     padding: 10px;*/
@@ -117,7 +117,7 @@
     width:23%;
     aspect-ratio: 1/1;
     background-color: var(--background-color);
-    margin-top: -33%;
+    margin-top: -32%;
     border-radius: 50%;
     z-index: 1;
   }
@@ -128,7 +128,7 @@
     margin-top: -5.1%;
   }
   .name {
-    font-size: 300%;
+    font-size: 250%;
     margin-top: -25%;
     color: var(--text-color);
     margin-left: 28%;
@@ -136,6 +136,7 @@
   .commander {
     font-size: 150%;
     color: var(--text-color);
+    margin-top: 3%;
     margin-left: 28%;
   }
   .info-text {
@@ -145,41 +146,35 @@
     padding: 1.7%;
   }
   .atk-pow-block {
-    margin-bottom: -2px;
     display:flex;
     flex-direction: column;
     flex: 3;
     order: 1
   }
   .mor-com-block {
-    margin-bottom: -2px;
     display:flex;
     flex-direction: column;
     flex: 2;
     order: 2
   }
   .ability-score-bar {
-    border: 2px solid var(--border-color);
-    display: flex;
-    flex-direction: row;
+    /*border: 2px solid var(--border-color);*/
     margin-left: 2.5%;
     width:95%;
     background-color: var(--banner-color);
-    flex:1;
+    flex:2;
     order:1
   }
   .ability-score-bar2 {
-    border: 2px solid var(--border-color);
-    display: flex;
-    flex-direction: row;
+    /*border: 2px solid var(--border-color);*/
     margin-left: 2.5%;
     width:95%;
-    background-color: var(--banner-color);
-    flex:1;
+    background-color: var(--background-color);
+    flex:2;
     order:1
   }
   .ability-score-title-zone {
-    border: 2px solid var(--border-color);
+    /*border: 2px solid var(--border-color);*/
     margin-left: 2.5%;
     width:95%;
     display: flex;
@@ -196,8 +191,9 @@
   }
 
   .ability-score-title2 {
-    margin-top: 10px;
-    font-size: 150%;
+    position: relative;
+    margin-top: -80px;
+    font-size: 250%;
     text-align: center;
     color: var(--text-color);
     flex:1;
@@ -212,4 +208,15 @@
   .trait-description {
     display: inline;
     font-size: 75%;
+  }
+
+  .bar-icons {
+    margin-top: -2%;
+    margin-bottom: -3%;
+    width: 100%;
+  }
+
+  .overlay-as-box {
+    display: flex;
+    flex-direction: row;
   }
