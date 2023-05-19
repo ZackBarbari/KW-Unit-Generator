@@ -108,7 +108,7 @@ const races = {
     name: "Dragonborn",
     size: 6,
     traits: [39],
-    modifiers: [0, 0, 1, 0, 1, 1]
+    modifiers: [0, 0, 1, 0, 0, 0]
   },
   Dretch: {
     name: "Dretch",

@@ -14,6 +14,7 @@ import { races, raceMap } from '../constants/races';
 import {traits, traitMap} from '../constants/traits';
 import { useRef, useState } from "react";
 import defaults from '../constants/statics/defaults';
+import CheckBox from './forms/checkbox';
 
 const InputBox = ({onMod}) => {
     const [isLevy, setLevy] = useState(false);
@@ -40,6 +41,7 @@ const InputBox = ({onMod}) => {
     const dmgRef = useRef('0')
     const morRef = useRef('0')
     const comRef = useRef('0')
+    const cultureGroupOverrideRef = useRef(0)
     var list = [];
     var marker = true;
 
@@ -119,6 +121,11 @@ const InputBox = ({onMod}) => {
         setTraitList(list);
         marker = false;
         onSave();
+    }
+
+    function overrideCulture() {
+        console.log(cultureGroupOverrideRef.current.value)
+        onSave()
     }
 
     const onDelete = (currentTrait) => {
@@ -227,6 +234,10 @@ const InputBox = ({onMod}) => {
                 invalid={isLevy}
                 onChange={changeLevy}
                 />
+            <CheckBox
+                label = "Using Culture Groups"
+                ref={cultureGroupOverrideRef}
+                onChange={overrideCulture}/>
                 <br></br>
             </div>
             <div className='trait-box'>
