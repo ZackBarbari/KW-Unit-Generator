@@ -234,10 +234,6 @@ const InputBox = ({onMod}) => {
                 invalid={isLevy}
                 onChange={changeLevy}
                 />
-            <CheckBox
-                label = "Using Culture Groups"
-                ref={cultureGroupOverrideRef}
-                onChange={overrideCulture}/>
                 <br></br>
             </div>
             <div className='trait-box'>

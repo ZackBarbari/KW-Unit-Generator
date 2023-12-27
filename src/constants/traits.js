@@ -172,7 +172,7 @@ const traits = {
       "As an action, this unit can choose one unit adjacent to it. That unit’s type becomes aerial until the end of its next activation, and it is temporarily removed from the battlefield. When that unit’s type reverts to its original type, it chooses to be placed in one empty space on the battlefield. Recharge 6."
   },
   35: {
-    name: "“Dig!”.",
+    name: "“Dig!”",
     description:
       "As an action, choose a space containing an opposed fortification and remove this unit from the battlefield. On the unit’s next activation, the target fortification takes 2d6 damage and this unit breaks as though it were in that space."
   },
@@ -470,37 +470,37 @@ const traits = {
       "As a reaction to suffering 1 or more casualties from an opposed artillery or aerial unit’s Attack test, this unit makes a DC 13 Command test. On a success, any opposed unit targeting this unit has disadvantage on Power tests until this unit’s next activation."
   },
   95: {
-    name: "Maneuver: “Evasive Maneuvers!”.",
+    name: "Maneuver: “Evasive Maneuvers!”",
     description:
       "As a reaction when an opposed artillery unit makes an Attack test against this unit, impose disadvantage on the opposed unit’s Attack test. Recharge 5–6."
   },
   96: {
-    name: "Maneuver: “Fire!!”.",
+    name: "Maneuver: “Fire!!”",
     description:
       "As a reaction to a successful Power test made against a target unit, add a fire token to the target. The fire token inflicts 1 casualty. Recharge 4–6."
   },
   97: {
-    name: "Maneuver: “Hold the Line!”.",
+    name: "Maneuver: “Hold the Line!”",
     description:
       "As a reaction to being diminished, this unit makes a DC 13 Command test. On a success, this unit ignores the casualties that caused it to become diminished, and is not diminished."
   },
   98: {
-    name: "Maneuver: “Lancers! Flank Them!”.",
+    name: "Maneuver: “Lancers! Flank Them!”",
     description:
       "As a reaction when an opposed cavalry or aerial unit inflicts 1 or more casualties on an allied infantry or artillery unit, this unit makes a free attack against that opposed unit."
   },
   99: {
-    name: "Maneuver: “Land and Charge!”.",
+    name: "Maneuver: “Land and Charge!”",
     description:
       "While this unit has the aerial type, it can use a bonus action to make a DC 11 Command test. On a success, this unit’s Power tests have +2 damage on this activation, but the unit’s type becomes cavalry. At the end of its next activation, the unit regains the aerial type. Recharge 4–6."
   },
   100: {
-    name: "Maneuver: “Prey on the Weak”.",
+    name: "Maneuver: “Prey on the Weak”",
     description:
       "As a reaction to an exposed opposed unit being diminished, this unit makes a DC 10 Command test. On a success, the unit makes an attack against the opposed unit."
   },
   101: {
-    name: "Maneuver: “Spit Upon Their Horns”.",
+    name: "Maneuver: “Spit Upon Their Horns”",
     description:
       "As a reaction to succeeding on a Power test made as part of an attack, this unit makes a DC 13 Command test. On a success, the target unit suffers 1 additional casualty."
   },
@@ -810,6 +810,10 @@ const traits = {
     name: "You Will Be Upgraded.",
     description: "As a reaction to becoming broken, this unit can target an adjacent diminished unit and make a DC 15 Power test. On a success, this unit breaks and can’t be rallied until the end of battle, and this unit’s commander gains control of the target unit. The target unit’s defense becomes 16 and its toughness becomes 2."
   },
+  171: {
+    name: "“Follow the Standard!”",
+    description: "When this unit succeeds on a Power test as part of an attack, each cavalry unit the unit’s commander controls can use a reaction to immediately make an attack against the target of the Power test."
+  }
 };
 
 let traitMap = new Map();
